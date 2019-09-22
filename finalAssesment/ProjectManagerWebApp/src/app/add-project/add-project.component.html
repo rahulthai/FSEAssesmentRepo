@@ -1,0 +1,50 @@
+<!-- Default horizontal form -->
+<form>
+        <!-- Grid row -->
+        <div class="form-group row">
+          <!-- Default input -->
+          <label for="inputproject" class="col-sm-2 col-form-label">Project</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputproject" placeholder="Project">
+          </div>
+        </div>
+        <!-- Grid row -->
+      
+        <!-- Grid row -->
+        <div class="form-group row">
+          <!-- Default input -->
+          <div class="offset-sm-2 col-sm-10" style="display: inherit">
+                <input type="checkbox" class="form-check-input" id="setstartdateenddate">
+                <label class="form-check-label col-sm-3" for="setstartdateenddate">Set Start Date and End Date</label>
+                <input type="date" class="form-control col-sm-2" id="startdate" placeholder="Start Date">
+                <input type="date" class="form-control col-sm-2" id="enddate" placeholder="END Date">
+          </div>
+        </div>
+        <!-- Grid row -->
+        <!-- Grid row -->
+        <div class="form-group row">
+                <!-- Default input -->
+                <label for="inputpriority" class="col-sm-2 col-form-label">Priority</label>
+                <div class="col-sm-10">
+                  <input type="range" min="0" max="30" step="1" value="5" class="form-control col-sm-3"  id="inputpriority" placeholder="Priority"  oninput="range1value.value = inputpriority.valueAsNumber">
+                  <output name="range1value" for="inputpriority">5</output>
+                </div>
+              </div>
+      <!-- Grid row -->
+      <div class="form-group row">
+            <!-- Default input -->
+            <label for="inputmanager" class="col-sm-2 col-form-label">Manager</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control col-sm-3" id="inputmanager" placeholder="Manager"><input type="button" class="form-control col-sm-2" value="Search">
+            </div>
+          </div>
+        <!-- Grid row -->
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <input type="button" class="btn btn-primary" value="Add"/>&nbsp;&nbsp;
+            <input type="reset" class="btn btn-primary" value="Reset"/>
+          </div>
+        </div>
+        <!-- Grid row -->
+      </form>
+      <!-- Default horizontal form -->
