@@ -14,6 +14,7 @@ namespace projectmanager.Service.Controllers.Tests
         [Test()]
         public void GetAllProjectsTest()
         {
+            //comment to test if build is auto triggering
             Assert.Fail();
         }
 
