@@ -107,7 +107,9 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\Newtonsoft.Json.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\projectmanager.DAL.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Net.Http.Formatting.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Cors.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Helpers.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.Cors.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.WebHost.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Mvc.dll
@@ -123,7 +125,10 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\AutoMapper.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\EntityFramework.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\EntityFramework.SqlServer.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Net.Http.Formatting.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Helpers.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.Cors.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Mvc.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Optimization.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Razor.xml
@@ -131,8 +136,6 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.WebPages.Deployment.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.WebPages.Razor.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\Newtonsoft.Json.xml
-C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Net.Http.Formatting.xml
-C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.WebHost.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csprojAssemblyReference.cache

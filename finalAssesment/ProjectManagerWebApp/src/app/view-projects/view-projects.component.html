@@ -1,1 +1,32 @@
-<p>view-projects works!</p>
+<div class="row">
+    <div>
+        <input type="search" [(ngModel)]="searchText" searchText class="form-control" placeholder="Search for..."/>
+    </div>
+    <div class="table-responsive">
+        <table class="table ">
+            <thead class="thead-default">
+                <th>PROJECT ID</th>
+                <th>Project</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Priority</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proj of projects | filter:'Project':searchText">
+                    <td>{{proj.Project_ID}}</td>
+                    <td>{{proj.Project}}</td>
+                    <td>{{proj.StartDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{proj.EndDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{proj.Priority}}</td>
+                    <td>
+                        <button type="button" value="Update" class="btn btn-default"
+                            (click)='editProject(proj.Project_ID, proj)'>Update</button>
+                        <button type="button" value="Delete" class="btn btn-danger"
+                            (click)='deleteProject(proj.Project_ID)'>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

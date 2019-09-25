@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace projectmanager.Service
 {
@@ -9,8 +10,10 @@ namespace projectmanager.Service
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
 
+            var cors = new EnableCorsAttribute("http://localhost:8070", "*", "*");
+            // Web API configuration and services
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 

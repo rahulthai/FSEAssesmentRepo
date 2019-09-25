@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule  } from "@angular/forms"; 
 import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { FilterPipe } from './shared/filter.pipe';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { UsersComponent } from './users/users.component';
@@ -16,9 +19,9 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes),FormsModule,CommonModule],
   exports: [RouterModule],
-  declarations:[ ProjectsComponent,
+  declarations:[FilterPipe, ProjectsComponent,
     TasksComponent,
     UsersComponent
     ,AddProjectComponent,

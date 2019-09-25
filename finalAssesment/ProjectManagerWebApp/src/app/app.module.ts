@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, Component, Injectable } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms'; 
 import { AppComponent } from './app.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -13,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
+    
     MenuComponent
     // ,
     // AddProjectComponent,
@@ -20,8 +26,12 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule
   ],
+  //exports:[FilterPipe],
   providers: [],
   bootstrap: [AppComponent]
 })

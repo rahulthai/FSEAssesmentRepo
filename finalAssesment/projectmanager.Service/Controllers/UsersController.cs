@@ -11,6 +11,7 @@ namespace projectmanager.Service.Controllers
 {
     public class UsersController : ApiController
     {
+        /*
         [HttpGet]
         public JsonResult<List<Models.Users>> GetAllUsers()
         {
@@ -62,6 +63,6 @@ namespace projectmanager.Service.Controllers
             var status = UsersDAL.DeleteUser(id);
             return status;
         }
-
+        */
     }
 }

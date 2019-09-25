@@ -104,3 +104,6 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\obj\Debug\projectmanager.Service.Tests.csproj.CopyComplete
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\obj\Debug\projectmanager.Service.Tests.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\obj\Debug\projectmanager.Service.Tests.pdb
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Http.Cors.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Cors.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Http.Cors.xml

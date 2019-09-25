@@ -11,6 +11,7 @@ namespace projectmanager.Service.Controllers
 {
     public class TasksController : ApiController
     {
+        /*
         [HttpGet]
         public JsonResult<List<Models.Tasks>> GetAllTasks()
         {
@@ -72,6 +73,6 @@ namespace projectmanager.Service.Controllers
             var status = TasksDAL.DeleteTask(id);
             return status;
         }
-
+        */
     }
 }
