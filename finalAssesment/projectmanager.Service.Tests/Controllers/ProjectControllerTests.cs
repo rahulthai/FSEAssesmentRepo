@@ -40,7 +40,7 @@ namespace projectmanager.Service.Controllers.Tests
         [Test()]
         public void GetProjectTest()
         {
-            var projects = ProjectController.GetProject(4);
+            var projects = ProjectController.GetProjectAsync(4);
             projects.Should().NotBeNull();
 
         }
@@ -54,12 +54,12 @@ namespace projectmanager.Service.Controllers.Tests
             proj.EndDate = DateTime.Parse("08/31/2019");
             proj.Priority = "15";
 
-            var result = ProjectController.InsertProject(proj);
-            result.Should().BeTrue();
+            var result = ProjectController.InsertProjectAsync(proj);
+            result.Result.Should().BeTrue();
             //Assert.AreEqual(MockContext.Object.Projects.Count(), 3);
 
             MockContext.Object.Projects.Count().Equals(3);
-            MockContext.Verify(m => m.SaveChanges(), Times.Once);
+            MockContext.Verify(m => m.SaveChangesAsync(), Times.Once);
 
         }
 
@@ -74,7 +74,7 @@ namespace projectmanager.Service.Controllers.Tests
             proj.Priority = "10";
 
             var result = ProjectController.UpdateProject(proj);
-            result.Should().BeTrue();
+            result.Result.Should().BeTrue();
             var project = MockContext.Object.Projects.Where(x => x.Project_ID == 1).Select(x => x.Project).FirstOrDefault();
 
             project.Should().NotBe("Dotnet");
@@ -89,7 +89,7 @@ namespace projectmanager.Service.Controllers.Tests
             initialcount.Should().Equals(1);
 
             var result = ProjectController.DeleteProject(1);
-            result.Should().BeTrue();
+            result.Result.Should().BeTrue();
 
             var count = MockContext.Object.Projects.Where(x => x.Project_ID == 1).Count();
 

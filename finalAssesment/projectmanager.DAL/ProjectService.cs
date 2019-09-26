@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +15,22 @@ namespace projectmanager.DAL
             _DbContext = DbContext;
         }
 
-        public List<Projects> GetAllProjects()
+        public async Task<List<Projects>> GetAllProjects()
         {
-            return _DbContext.Projects.ToList();
+            return await _DbContext.Projects.ToListAsync();
         }
 
-        public Projects GetProject(int project_ID)
+        public async Task<Projects> GetProject(int project_ID)
         {
-            return _DbContext.Projects.Where(p => p.Project_ID == project_ID).FirstOrDefault();
+            return await _DbContext.Projects.Where(p => p.Project_ID == project_ID).FirstOrDefaultAsync();
         }
-        public bool InsertProject(Projects ProjectItem)
+        public async Task<bool> InsertProject(Projects ProjectItem)
         {
             bool status;
             try
             {
-                _DbContext.Projects.Add(ProjectItem);
-                _DbContext.SaveChanges();
+                 _DbContext.Projects.Add(ProjectItem);
+                await _DbContext.SaveChangesAsync();
                 status = true;
             }
             catch (Exception)
@@ -38,7 +39,7 @@ namespace projectmanager.DAL
             }
             return status;
         }
-        public bool UpdateProject(Projects item)
+        public async Task<bool> UpdateProject(Projects item)
         {
             bool status;
             try
@@ -50,7 +51,7 @@ namespace projectmanager.DAL
                     projectItem.StartDate = item.StartDate;
                     projectItem.EndDate = item.EndDate;
                     projectItem.Priority = item.Priority;
-                    _DbContext.SaveChanges();
+                    await _DbContext.SaveChangesAsync();
                 }
                 status = true;
             }
@@ -60,7 +61,7 @@ namespace projectmanager.DAL
             }
             return status;
         }
-        public bool DeleteProject(int project_id)
+        public async Task<bool> DeleteProject(int project_id)
         {
             bool status;
             try
@@ -69,7 +70,7 @@ namespace projectmanager.DAL
                 if (projectItem != null)
                 {
                     _DbContext.Projects.Remove(projectItem);
-                    _DbContext.SaveChanges();
+                    await _DbContext.SaveChangesAsync();
                 }
                 status = true;
             }

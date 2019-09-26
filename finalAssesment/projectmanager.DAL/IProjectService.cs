@@ -9,11 +9,11 @@ namespace projectmanager.DAL
 {
     interface IProjectService
     {
-        List<Projects> GetAllProjects();
-        Projects GetProject(int project_ID);
-        bool InsertProject(Projects ProjectItem);
-        bool UpdateProject(Projects item);
-        bool DeleteProject(int project_id);
+        Task<List<Projects>> GetAllProjects();
+        Task<Projects> GetProject(int project_ID);
+        Task<bool> InsertProject(Projects ProjectItem);
+        Task<bool> UpdateProject(Projects item);
+        Task<bool> DeleteProject(int project_id);
 
     }
 }

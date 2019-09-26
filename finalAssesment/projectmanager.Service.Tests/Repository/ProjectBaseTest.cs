@@ -10,6 +10,7 @@ using NUnit.Framework;
 using projectmanager.Service.Controllers;
 using System;
 using System.Threading.Tasks;
+using projectmanager.Service.Tests.Utils;
 
 namespace projectmanager.Service.Tests.Repository
 {
@@ -44,8 +45,11 @@ namespace projectmanager.Service.Tests.Repository
 
 	        MockSet.As<IQueryable<Projects>>().Setup(m => m.Provider).Returns(queryable.Provider);
 	        MockSet.As<IEnumerable<Projects>>().Setup(m => m.GetEnumerator()).Returns(queryable.GetEnumerator());
+            MockSet.As<IQueryable<Projects>>().Setup(m => m.Provider).Returns(new AsyncQueryProvider<Projects>(queryable.Provider));
+            MockSet.As<IDbAsyncEnumerable<Projects>>().Setup(m => m.GetAsyncEnumerator()).Returns(new AsyncEnumerator<Projects>(queryable.GetEnumerator()));
 
-	        MockSet.Setup(m => m.Add(It.IsAny<Projects>())).Callback((Projects project) => projects.Add(project));
+
+            MockSet.Setup(m => m.Add(It.IsAny<Projects>())).Callback((Projects project) => projects.Add(project));
 	        MockSet.Setup(m => m.Remove(It.IsAny<Projects>())).Callback((Projects project) => projects.Remove(project));
 
             MockContext = new Mock<IContext>();

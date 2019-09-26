@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -21,12 +22,12 @@ namespace projectmanager.Service.Controllers
             dbContext = new ProjectManagerEntities();
         }
         [HttpGet]
-        public JsonResult<List<ProjectsModel>> GetAllProjects()
+        public async Task<JsonResult<List<ProjectsModel>>> GetAllProjects()
         {
             //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
 
             ProjectService projService = new ProjectService(dbContext);
-            List<Projects> prodList = projService.GetAllProjects();
+            List<Projects> prodList = await projService.GetAllProjects();
             List<ProjectsModel> projectsModelList = new List<ProjectsModel>();
             AutoMapper.Mapper.Map(prodList, projectsModelList);
             //foreach (var item in prodList)
@@ -36,11 +37,11 @@ namespace projectmanager.Service.Controllers
             return Json<List<ProjectsModel>>(projectsModelList);
         }
         [HttpGet]
-        public JsonResult<ProjectsModel> GetProject(int id)
+        public async Task<JsonResult<ProjectsModel>> GetProjectAsync(int id)
         {
             //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
             ProjectService projService = new ProjectService(dbContext);
-            Projects dalProject = projService.GetProject(id);
+            Projects dalProject = await projService.GetProject(id);
             ProjectsModel Projects = new ProjectsModel();
             //Projects = mapObj.Translate(dalProject);
             AutoMapper.Mapper.Map(dalProject, Projects);
@@ -48,7 +49,7 @@ namespace projectmanager.Service.Controllers
             return Json<ProjectsModel>(Projects);
         }
         [HttpPost]
-        public bool InsertProject(ProjectsModel Project)
+        public async Task<bool> InsertProjectAsync(ProjectsModel Project)
         {
             bool status = false;
             if (ModelState.IsValid)
@@ -59,13 +60,13 @@ namespace projectmanager.Service.Controllers
                 AutoMapper.Mapper.Map(Project, ProjectObj);
 
                 ProjectService projService = new ProjectService(dbContext);
-                status = projService.InsertProject(ProjectObj);
+                status = await projService.InsertProject(ProjectObj);
             }
             return status;
 
         }
         [HttpPut]
-        public bool UpdateProject(ProjectsModel Project)
+        public async Task<bool> UpdateProject(ProjectsModel Project)
         {
             //EntityMapper<ProjectsModel, Projects> mapObj = new EntityMapper<ProjectsModel, Projects>();
             Projects ProjectObj = new Projects();
@@ -73,16 +74,16 @@ namespace projectmanager.Service.Controllers
             AutoMapper.Mapper.Map(Project, ProjectObj);
 
             ProjectService projService = new ProjectService(dbContext);
-            var status = projService.UpdateProject(ProjectObj);
+            var status = await projService.UpdateProject(ProjectObj);
             return status;
 
         }
         [HttpDelete]
-        public bool DeleteProject(int id)
+        public async Task<bool> DeleteProject(int id)
         {
             ProjectService projService = new ProjectService(dbContext);
 
-            var status = projService.DeleteProject(id);
+            var status = await projService.DeleteProject(id);
             return status;
         }
     }
