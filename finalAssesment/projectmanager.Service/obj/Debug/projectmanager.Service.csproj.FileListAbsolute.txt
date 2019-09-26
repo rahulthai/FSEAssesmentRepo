@@ -69,6 +69,8 @@ C:\Rahul\FSE\Code\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager
 C:\Rahul\FSE\Code\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.pdb
 C:\Rahul\FSE\Code\FinalAssesment\projectmanager.Service\bin\EntityFramework.SqlServer.dll
 C:\Rahul\FSE\Code\FinalAssesment\projectmanager.Service\bin\EntityFramework.SqlServer.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csprojAssemblyReference.cache
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csproj.CoreCompileInputs.cache
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\projectmanager.Service.dll.config
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\projectmanager.Service.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\projectmanager.Service.pdb
@@ -138,8 +140,6 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\Newtonsoft.Json.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\System.Web.Http.WebHost.xml
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csprojAssemblyReference.cache
-C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csproj.CoreCompileInputs.cache
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.csproj.CopyComplete
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service\obj\Debug\projectmanager.Service.pdb

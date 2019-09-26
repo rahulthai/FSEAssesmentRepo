@@ -50,13 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IProjectService.cs" />
     <Compile Include="ParentTask.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ParentTaskDAL.cs" />
     <Compile Include="UsersDAL.cs" />
     <Compile Include="TasksDAL.cs" />
-    <Compile Include="ProjectDAL.cs" />
+    <Compile Include="ProjectService.cs" />
     <Compile Include="ProjectManagerEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

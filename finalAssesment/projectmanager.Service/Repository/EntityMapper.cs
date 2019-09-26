@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using projectmanager.DAL;
 using AutoMapper;
+using projectmanager.Service.Models;
 
 namespace projectmanager.Service.Repository
 {
@@ -11,8 +12,8 @@ namespace projectmanager.Service.Repository
     {
         public EntityMapper()
         {
-            Mapper.CreateMap<Models.Projects,Projects>();
-            Mapper.CreateMap<Projects, Models.Projects>();
+           // Mapper.Map(ProjectsModel, Projects);
+            //Mapper.CreateMap<Projects, Models.Projects>();
         }
         public TDestination Translate(TSource obj)
         {

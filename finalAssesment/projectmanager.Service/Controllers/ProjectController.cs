@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Results;
 using projectmanager.DAL;
+using projectmanager.Service.Models;
 using projectmanager.Service.Repository;
 
 namespace projectmanager.Service.Controllers
@@ -14,55 +15,74 @@ namespace projectmanager.Service.Controllers
 
     public class ProjectController : ApiController
     {
-        [HttpGet]
-        public JsonResult<List<Models.Projects>> GetAllProjects()
+        public IContext dbContext;
+        public ProjectController()
         {
-            EntityMapper<Projects, Models.Projects> mapObj = new EntityMapper<Projects, Models.Projects>();
-            List<Projects> prodList = ProjectDAL.GetAllProjects();
-            List<Models.Projects> Projects = new List<Models.Projects>();
-            foreach (var item in prodList)
-            {
-                Projects.Add(mapObj.Translate(item));
-            }
-            return Json<List<Models.Projects>>(Projects);
+            dbContext = new ProjectManagerEntities();
         }
         [HttpGet]
-        public JsonResult<Models.Projects> GetProject(int id)
+        public JsonResult<List<ProjectsModel>> GetAllProjects()
         {
-            EntityMapper<Projects, Models.Projects> mapObj = new EntityMapper<Projects, Models.Projects>();
-            Projects dalProject = ProjectDAL.GetProject(id);
-            Models.Projects Projects = new Models.Projects();
-            Projects = mapObj.Translate(dalProject);
-            return Json<Models.Projects>(Projects);
+            //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
+
+            ProjectService projService = new ProjectService(dbContext);
+            List<Projects> prodList = projService.GetAllProjects();
+            List<ProjectsModel> projectsModelList = new List<ProjectsModel>();
+            AutoMapper.Mapper.Map(prodList, projectsModelList);
+            //foreach (var item in prodList)
+            //{
+            //    projectsModelList.Add(item);
+            //}
+            return Json<List<ProjectsModel>>(projectsModelList);
+        }
+        [HttpGet]
+        public JsonResult<ProjectsModel> GetProject(int id)
+        {
+            //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
+            ProjectService projService = new ProjectService(dbContext);
+            Projects dalProject = projService.GetProject(id);
+            ProjectsModel Projects = new ProjectsModel();
+            //Projects = mapObj.Translate(dalProject);
+            AutoMapper.Mapper.Map(dalProject, Projects);
+
+            return Json<ProjectsModel>(Projects);
         }
         [HttpPost]
-        public bool InsertProject(Models.Projects Project)
+        public bool InsertProject(ProjectsModel Project)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
-                EntityMapper<Models.Projects, Projects> mapObj = new EntityMapper<Models.Projects, Projects>();
+               // EntityMapper<ProjectsModel, Projects> mapObj = new EntityMapper<ProjectsModel, Projects>();
                 Projects ProjectObj = new Projects();
-                ProjectObj = mapObj.Translate(Project);
-                status = ProjectDAL.InsertProject(ProjectObj);
+                //ProjectObj = mapObj.Translate(Project);
+                AutoMapper.Mapper.Map(Project, ProjectObj);
+
+                ProjectService projService = new ProjectService(dbContext);
+                status = projService.InsertProject(ProjectObj);
             }
             return status;
 
         }
         [HttpPut]
-        public bool UpdateProject(Models.Projects Project)
+        public bool UpdateProject(ProjectsModel Project)
         {
-            EntityMapper<Models.Projects, Projects> mapObj = new EntityMapper<Models.Projects, Projects>();
+            //EntityMapper<ProjectsModel, Projects> mapObj = new EntityMapper<ProjectsModel, Projects>();
             Projects ProjectObj = new Projects();
-            ProjectObj = mapObj.Translate(Project);
-            var status = ProjectDAL.UpdateProject(ProjectObj);
+            //ProjectObj = mapObj.Translate(Project);
+            AutoMapper.Mapper.Map(Project, ProjectObj);
+
+            ProjectService projService = new ProjectService(dbContext);
+            var status = projService.UpdateProject(ProjectObj);
             return status;
 
         }
         [HttpDelete]
         public bool DeleteProject(int id)
         {
-            var status = ProjectDAL.DeleteProject(id);
+            ProjectService projService = new ProjectService(dbContext);
+
+            var status = projService.DeleteProject(id);
             return status;
         }
     }

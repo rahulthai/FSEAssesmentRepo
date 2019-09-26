@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projectmanager.Service.MapperConfiguration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace projectmanager.Service
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            AutoMapperWebApiProfile.Run();
         }
     }
 }

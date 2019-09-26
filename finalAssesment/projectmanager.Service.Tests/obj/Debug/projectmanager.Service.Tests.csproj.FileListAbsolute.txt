@@ -107,3 +107,13 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Http.Cors.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Cors.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Http.Cors.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\obj\Debug\projectmanager.Service.Tests.dll.config
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\FluentAssertions.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.ValueTuple.dll
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\FluentAssertions.pdb
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\FluentAssertions.xml
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.Service.Tests\bin\Debug\System.ValueTuple.xml
