@@ -5,7 +5,7 @@ using System.Web;
 
 namespace projectmanager.Service.Models
 {
-    public class Users
+    public class UsersModel
     {
         public int User_ID { get; set; }
         public string FirstName { get; set; }

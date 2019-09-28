@@ -5,7 +5,7 @@ using System.Web;
 
 namespace projectmanager.Service.Models
 {
-    public class Tasks
+    public class TasksModel
     {
         public long Task_ID { get; set; }
         public string Task { get; set; }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="..\packages\NBench.1.2.2\build\NBench.props" Condition="Exists('..\packages\NBench.1.2.2\build\NBench.props')" />
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <PropertyGroup>
@@ -19,6 +19,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,6 +63,9 @@
     </Reference>
     <Reference Include="NBench, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NBench.1.2.2\lib\net452\NBench.dll</HintPath>
+    </Reference>
+    <Reference Include="NBench.Runner, Version=1.0.2.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\NBench.Runner.1.0.3\lib\net452\NBench.Runner.exe</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -149,13 +153,13 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\NBench.1.2.2\build\NBench.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NBench.1.2.2\build\NBench.props'))" />
-    <Error Condition="!Exists('..\packages\NBench.1.2.2\build\NBench.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NBench.1.2.2\build\NBench.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\NBench.1.2.2\build\NBench.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NBench.1.2.2\build\NBench.props'))" />
+    <Error Condition="!Exists('..\packages\NBench.1.2.2\build\NBench.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NBench.1.2.2\build\NBench.targets'))" />
   </Target>
-  <Import Project="..\packages\NBench.1.2.2\build\NBench.targets" Condition="Exists('..\packages\NBench.1.2.2\build\NBench.targets')" />
   <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\NBench.1.2.2\build\NBench.targets" Condition="Exists('..\packages\NBench.1.2.2\build\NBench.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IContext.cs" />
     <Compile Include="IProjectService.cs" />
     <Compile Include="ParentTask.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>

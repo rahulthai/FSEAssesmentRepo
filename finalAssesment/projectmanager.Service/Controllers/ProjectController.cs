@@ -16,17 +16,26 @@ namespace projectmanager.Service.Controllers
 
     public class ProjectController : ApiController
     {
-        public IContext dbContext;
+        private IContext dbContext = new ProjectManagerEntities();
+        private ProjectService projService;
+
         public ProjectController()
         {
-            dbContext = new ProjectManagerEntities();
+            //dbContext = new ProjectManagerEntities();
+            //projService = new ProjectService(dbContext);
+    }
+        public ProjectController(IContext context)
+        {
+            dbContext = context;
+            //projService = new ProjectService(dbContext);
         }
         [HttpGet]
         public async Task<JsonResult<List<ProjectsModel>>> GetAllProjects()
         {
             //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
 
-            ProjectService projService = new ProjectService(dbContext);
+            //ProjectService projService = new ProjectService(dbContext);
+            projService = new ProjectService(dbContext);
             List<Projects> prodList = await projService.GetAllProjects();
             List<ProjectsModel> projectsModelList = new List<ProjectsModel>();
             AutoMapper.Mapper.Map(prodList, projectsModelList);
@@ -40,7 +49,8 @@ namespace projectmanager.Service.Controllers
         public async Task<JsonResult<ProjectsModel>> GetProjectAsync(int id)
         {
             //EntityMapper<Projects, ProjectsModel> mapObj = new EntityMapper<Projects, ProjectsModel>();
-            ProjectService projService = new ProjectService(dbContext);
+            //ProjectService projService = new ProjectService(dbContext);
+            projService = new ProjectService(dbContext);
             Projects dalProject = await projService.GetProject(id);
             ProjectsModel Projects = new ProjectsModel();
             //Projects = mapObj.Translate(dalProject);
@@ -59,7 +69,8 @@ namespace projectmanager.Service.Controllers
                 //ProjectObj = mapObj.Translate(Project);
                 AutoMapper.Mapper.Map(Project, ProjectObj);
 
-                ProjectService projService = new ProjectService(dbContext);
+                //ProjectService projService = new ProjectService(dbContext);
+                projService = new ProjectService(dbContext);
                 status = await projService.InsertProject(ProjectObj);
             }
             return status;
@@ -73,7 +84,8 @@ namespace projectmanager.Service.Controllers
             //ProjectObj = mapObj.Translate(Project);
             AutoMapper.Mapper.Map(Project, ProjectObj);
 
-            ProjectService projService = new ProjectService(dbContext);
+            //ProjectService projService = new ProjectService(dbContext);
+            projService = new ProjectService(dbContext);
             var status = await projService.UpdateProject(ProjectObj);
             return status;
 
@@ -81,8 +93,8 @@ namespace projectmanager.Service.Controllers
         [HttpDelete]
         public async Task<bool> DeleteProject(int id)
         {
-            ProjectService projService = new ProjectService(dbContext);
-
+            //ProjectService projService = new ProjectService(dbContext);
+            projService = new ProjectService(dbContext);
             var status = await projService.DeleteProject(id);
             return status;
         }

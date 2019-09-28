@@ -19,6 +19,9 @@ namespace projectmanager.Service.MapperConfiguration
         {
             CreateMap<ProjectsModel, Projects>();
             CreateMap<Projects, ProjectsModel>();
+
+            CreateMap<UsersModel, Users>();
+            CreateMap<Users, UsersModel>();
         }
     }
 }

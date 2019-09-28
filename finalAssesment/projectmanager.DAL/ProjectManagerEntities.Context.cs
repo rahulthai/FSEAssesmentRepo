@@ -14,16 +14,6 @@ namespace projectmanager.DAL
     using System.Data.Entity.Infrastructure;
     using System.Threading.Tasks;
 
-    public interface IContext : IDisposable
-    {
-        DbSet<TEntity> Set<TEntity>() where TEntity : class;
-        DbSet<ParentTask> ParentTask { get; set; }
-        DbSet<Projects> Projects { get; set; }
-        DbSet<Tasks> Tasks { get; set; }
-        DbSet<Users> Users { get; set; }
-        Task<int> SaveChangesAsync();
-    }
-
     public partial class ProjectManagerEntities : DbContext, IContext
     {
         public ProjectManagerEntities()
