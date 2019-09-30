@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { UsersComponent } from './users/users.component';
+//import { AddUserComponent } from './add-user/add-user.component';
+//import { ViewUsersComponent } from './view-users/view-users.component';
 // import { AddProjectComponent } from './add-project/add-project.component';
 // import { ViewProjectsComponent } from './view-projects/view-projects.component';
 
@@ -20,6 +22,9 @@ import { UsersComponent } from './users/users.component';
     AppComponent,
     
     MenuComponent
+    //,AddUserComponent,
+    
+    //ViewUsersComponent
     // ,
     // AddProjectComponent,
     // ViewProjectsComponent

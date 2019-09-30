@@ -1,0 +1,39 @@
+<h5>View Users</h5>
+<div class="col-md-6">
+    <div class="row" *ngIf="users?.length > 0">
+        <div class="col-md-5">
+            <input type="search" [(ngModel)]="searchText" searchText class="form-control" placeholder="Search for..."/>
+        </div>
+        <div class="col-md-7">
+            Sort By:<a routerLink="." [class.active]="sortstring === 'FirstName'" class="sortlinks" (click)='sortresult("FirstName")' #btnfirstname>First Name</a> 
+            <a  routerLink="."   [class.active]="sortstring === 'LastName'" class="sortlinks" (click)='sortresult("LastName")' #btnlastname>Last Name</a> 
+            <a  routerLink="."   [class.active]="sortstring === 'Employee_ID'" class="sortlinks" (click)='sortresult("Employee_ID")' #btnemployeeid>Employee_ID</a></div>
+
+    </div>
+    <hr class="dotted">
+    <div class="table-responsive">
+        <ul class="list-group" #userslist>
+            <li class="list-group-item" *ngFor="let user of (users | filter:{FirstName:searchText,LastName:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+                <div class="row">
+                    <div class="col-md-8"><div>First Name :<label>{{user.FirstName}}</label></div>
+                    <div>Last Name :<label>{{user.LastName}}</label></div>
+                    <div>Employee ID :<label>{{user.Employee_ID}}</label></div></div>
+                    <div class="col-md-2">
+                        <button type="button" value="Edit" class="btn btn-secondary btn-sm btn-margin"
+                        (click)='getUserByID(user.User_ID)'>Edit</button>
+                    <button type="button" value="Delete" class="btn btn-danger btn-sm btn-margin"
+                        (click)='deleteUser(user.User_ID, user)'>Delete</button></div>
+                </div>
+            </li>
+            <li  *ngIf="users?.length == 0">
+                <span class="search_no_results">
+                   No User data found to display
+                </span>
+            </li>
+            
+        </ul>
+        <!-- <p *ngIf="!userslist.rows.length">No results</p> -->
+
+    </div>
+    <div></div>
+</div>

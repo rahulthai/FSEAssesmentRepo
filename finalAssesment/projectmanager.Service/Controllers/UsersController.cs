@@ -1,68 +1,83 @@
-﻿using projectmanager.DAL;
-using projectmanager.Service.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Results;
+using projectmanager.DAL;
+using projectmanager.Service.Models;
+using projectmanager.Service.Repository;
 
 namespace projectmanager.Service.Controllers
 {
     public class UsersController : ApiController
     {
-        /*
-        [HttpGet]
-        public JsonResult<List<Models.Users>> GetAllUsers()
+        private readonly IContext dbContext = new ProjectManagerEntities();
+        private UserService userService;
+
+        public UsersController()
         {
-            EntityMapper<Users, Models.Users> mapObj = new EntityMapper<Users, Models.Users>();
-            List<Users> prodList = UsersDAL.GetAllUsers();
-            List<Models.Users> Users = new List<Models.Users>();
-            foreach (var item in prodList)
-            {
-                Users.Add(mapObj.Translate(item));
-            }
-            return Json<List<Models.Users>>(Users);
+
+        }
+
+        public UsersController(IContext context)
+        {
+            dbContext = context;
         }
         [HttpGet]
-        public JsonResult<Models.Users> GetUser(int id)
+        public async Task<JsonResult<List<UsersModel>>> GetAllUsers()
         {
-            EntityMapper<Users, Models.Users> mapObj = new EntityMapper<Users, Models.Users>();
-            Users dalProject = UsersDAL.GetUser(id);
-            Models.Users Users = new Models.Users();
-            Users = mapObj.Translate(dalProject);
-            return Json<Models.Users>(Users);
+            userService = new UserService(dbContext);
+            List<Users> userList = await userService.GetAllUsers();
+            List<UsersModel> usersModelList = new List<UsersModel>();
+            AutoMapper.Mapper.Map(userList, usersModelList);
+            return Json<List<UsersModel>>(usersModelList);
+        }
+        [HttpGet]
+        public async Task<JsonResult<UsersModel>> GetUserAsync(int id)
+        {
+            userService = new UserService(dbContext);
+            Users dalUser = await userService.GetUser(id);
+            UsersModel Users = new UsersModel();
+            AutoMapper.Mapper.Map(dalUser, Users);
+
+            return Json<UsersModel>(Users);
         }
         [HttpPost]
-        public bool InsertUser(Models.Users user)
+        public async Task<bool> InsertUserAsync(UsersModel User)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
-                EntityMapper<Models.Users, Users> mapObj = new EntityMapper<Models.Users, Users>();
                 Users UserObj = new Users();
-                UserObj = mapObj.Translate(user);
-                status = UsersDAL.InsertUser(UserObj);
+                AutoMapper.Mapper.Map(User, UserObj);
+
+                userService = new UserService(dbContext);
+                status = await userService.InsertUser(UserObj);
             }
             return status;
 
         }
         [HttpPut]
-        public bool UpdateUser(Models.Users user)
+        public async Task<bool> UpdateUser(UsersModel User)
         {
-            EntityMapper<Models.Users, Users> mapObj = new EntityMapper<Models.Users, Users>();
             Users UserObj = new Users();
-            UserObj = mapObj.Translate(user);
-            var status = UsersDAL.UpdateUser(UserObj);
+            AutoMapper.Mapper.Map(User, UserObj);
+
+            userService = new UserService(dbContext);
+            var status = await userService.UpdateUser(UserObj);
             return status;
 
         }
         [HttpDelete]
-        public bool DeleteUser(int id)
+        public async Task<bool> DeleteUser(int id)
         {
-            var status = UsersDAL.DeleteUser(id);
+            userService = new UserService(dbContext);
+            var status = await userService.DeleteUser(id);
             return status;
         }
-        */
     }
 }

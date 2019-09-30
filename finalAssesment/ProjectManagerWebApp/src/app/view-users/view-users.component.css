@@ -1,0 +1,18 @@
+.dotted{
+    border:none;
+    border-top:1px dotted;
+}
+
+.btn-margin{
+margin-top:5px;
+}
+
+.sortlinks{
+
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.active{
+    background: yellow;
+}

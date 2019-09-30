@@ -16,14 +16,14 @@ namespace projectmanager.Service.Controllers
 
     public class ProjectController : ApiController
     {
-        private IContext dbContext = new ProjectManagerEntities();
+        private readonly IContext dbContext = new ProjectManagerEntities();
         private ProjectService projService;
 
         public ProjectController()
         {
             //dbContext = new ProjectManagerEntities();
             //projService = new ProjectService(dbContext);
-    }
+        }
         public ProjectController(IContext context)
         {
             dbContext = context;

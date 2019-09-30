@@ -1,0 +1,11 @@
+.btn-space{
+    margin-left: 10px;
+}
+
+.btn-toolbar{
+   margin-left:65%;
+}
+
+input[required]{
+    border: 1px solid orange !important;
+}

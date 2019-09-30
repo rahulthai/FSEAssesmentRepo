@@ -1,1 +1,4 @@
-<p>users works!</p>
+<!-- <h2>users</h2> -->
+<app-add-user [user]="userItem" (onAddedUser)="getUsersList($event)"></app-add-user>
+<hr>
+<app-view-users [users]="usersList" (onGetUserByID)="getUserByID($event)" (onDeleteUser)="deleteUser($event)" ></app-view-users>

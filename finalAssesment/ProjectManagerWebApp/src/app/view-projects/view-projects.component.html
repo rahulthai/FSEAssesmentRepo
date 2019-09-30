@@ -13,7 +13,7 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr *ngFor="let proj of projects | filter:'Project':searchText">
+                <tr *ngFor="let proj of projects | filter:{'Project':searchText}:false">
                     <td>{{proj.Project_ID}}</td>
                     <td>{{proj.Project}}</td>
                     <td>{{proj.StartDate | date: 'MM/dd/yyyy'}}</td>

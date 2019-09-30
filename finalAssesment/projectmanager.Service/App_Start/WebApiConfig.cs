@@ -12,8 +12,10 @@ namespace projectmanager.Service
         {
 
             var cors = new EnableCorsAttribute("http://localhost:8070", "*", "*");
+            var cors1 = new EnableCorsAttribute("http://localhost:4200", "*", "*");
             // Web API configuration and services
             config.EnableCors(cors);
+           config.EnableCors(cors1);
             // Web API routes
             config.MapHttpAttributeRoutes();
 
