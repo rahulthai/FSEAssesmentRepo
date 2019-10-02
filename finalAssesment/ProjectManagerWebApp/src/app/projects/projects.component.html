@@ -1,4 +1,4 @@
 <!-- <h2>Projects</h2> -->
-<app-add-project></app-add-project>
+<app-add-project [project]="projectItem" (onAddedProject)="getProjectsList($event)"></app-add-project>
 <hr>
-<app-view-projects></app-view-projects>
+<app-view-projects [projects]="projectsList" (onGetProjectByID)="getProjectByID($event)" (onDeleteProject)="deleteProject($event)" ></app-view-projects>

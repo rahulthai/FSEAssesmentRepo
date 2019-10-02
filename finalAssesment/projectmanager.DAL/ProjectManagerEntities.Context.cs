@@ -12,9 +12,8 @@ namespace projectmanager.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Threading.Tasks;
-
-    public partial class ProjectManagerEntities : DbContext, IContext
+    
+    public partial class ProjectManagerEntities : DbContext,IContext
     {
         public ProjectManagerEntities()
             : base("name=ProjectManagerEntities")
@@ -28,7 +27,7 @@ namespace projectmanager.DAL
     
         public virtual DbSet<ParentTask> ParentTask { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
-        public virtual DbSet<Tasks> Tasks { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Tasks> Tasks { get; set; }
     }
 }

@@ -43,12 +43,17 @@ namespace projectmanager.Service.Tests.Repository
                     Project ="Dotnet",
                     StartDate =DateTime.Parse("09-08-2015"),
                     EndDate =DateTime.Parse("09-13-2015"),
-                    Priority ="10"},
+                    Priority ="10",
+                    Status = true,
+                    User_ID = 1
+            },
             new Projects() {  Project_ID = 4,
                     Project ="Java",
                     StartDate =DateTime.Parse("05-06-2016"),
                     EndDate =DateTime.Parse("05-22-2016"),
-                    Priority ="10"}
+                    Priority ="10",
+                    Status = true,
+                    User_ID = 1}
             };
             var queryable = projects.AsQueryable();
 
@@ -78,13 +83,16 @@ namespace projectmanager.Service.Tests.Repository
             new Projects() {  Project_ID = 1,
                     Project ="Dotnet",
                     StartDate =DateTime.Parse("09-08-2015"),
-                    EndDate =DateTime.Parse("09-13-2015"),
-                    Priority ="10"},
+                    Priority ="10",
+                    Status = true,
+                    User_ID = 1},
             new Projects() {  Project_ID = 4,
                     Project ="Java",
                     StartDate =DateTime.Parse("05-06-2016"),
                     EndDate =DateTime.Parse("05-22-2016"),
-                    Priority ="10"}
+                    Priority ="10",
+                    Status = true,
+                    User_ID = 1}
             };
             var queryable = projects.AsQueryable();
 

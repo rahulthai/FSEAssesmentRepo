@@ -1,32 +1,44 @@
-<div class="row">
-    <div>
-        <input type="search" [(ngModel)]="searchText" searchText class="form-control" placeholder="Search for..."/>
+<h5>View Projects</h5>
+<div class="col-md-6">
+    <div class="row" *ngIf="projects?.length > 0">
+        <div class="col-md-5">
+            <input type="search" [(ngModel)]="searchText" searchText class="form-control" placeholder="Search for..."/>
+        </div>
+        <div class="col-md-7">
+            Sort By:<a routerLink="." [class.active]="sortstring === 'Project'" class="sortlinks" (click)='sortresult("Project")' #btnproject>Project</a> 
+            <a  routerLink="."   [class.active]="sortstring === 'StartDate'" class="sortlinks" (click)='sortresult("StartDate")' #btnlastname>Start Date</a> 
+            <a  routerLink="."   [class.active]="sortstring === 'EndDate'" class="sortlinks" (click)='sortresult("EndDate")' #btnemployeeid>End Date</a>
+            <a  routerLink="."   [class.active]="sortstring === 'Priority'" class="sortlinks" (click)='sortresult("Priority")' #btnemployeeid>Priority</a>
+        </div>
     </div>
+
+    <hr class="dotted">
     <div class="table-responsive">
-        <table class="table ">
-            <thead class="thead-default">
-                <th>PROJECT ID</th>
-                <th>Project</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Priority</th>
-                <th></th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let proj of projects | filter:{'Project':searchText}:false">
-                    <td>{{proj.Project_ID}}</td>
-                    <td>{{proj.Project}}</td>
-                    <td>{{proj.StartDate | date: 'MM/dd/yyyy'}}</td>
-                    <td>{{proj.EndDate | date: 'MM/dd/yyyy'}}</td>
-                    <td>{{proj.Priority}}</td>
-                    <td>
-                        <button type="button" value="Update" class="btn btn-default"
-                            (click)='editProject(proj.Project_ID, proj)'>Update</button>
-                        <button type="button" value="Delete" class="btn btn-danger"
-                            (click)='deleteProject(proj.Project_ID)'>Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <ul class="list-group" #projectslist>
+            <li class="list-group-item" *ngFor="let project of (projects | filter:{Project:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>Project :<label>{{project.Project}}</label></div>
+                        <div>Start Date :<label>{{project.StartDate | date: 'MM/dd/yyyy'}}</label></div>
+                        <div>End Date :<label>{{project.EndDate | date: 'MM/dd/yyyy'}}</label></div>
+                        <div>Priority :<label>{{project.Priority}}</label></div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" value="Update" class="btn btn-secondary btn-sm btn-margin"
+                        (click)='getProjectByID(project.Project_ID)'>Update</button>
+                    <button type="button" value="Suspend" class="btn btn-danger btn-sm btn-margin"
+                        (click)='deleteProject(project.Project_ID, project)'>Suspend</button></div>
+                </div>
+            </li>
+            <li  *ngIf="projects?.length == 0">
+                <span class="search_no_results">
+                   No Project data found to display
+                </span>
+            </li>
+            
+        </ul>
+        <!-- <p *ngIf="!projectslist.rows.length">No results</p> -->
+
     </div>
-</div>
+    <div></div>
+    </div>

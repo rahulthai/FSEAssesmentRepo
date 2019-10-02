@@ -14,12 +14,6 @@ namespace projectmanager.DAL
     
     public partial class Tasks
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tasks()
-        {
-            this.Users = new HashSet<Users>();
-        }
-    
         public long Task_ID { get; set; }
         public Nullable<long> Parent_ID { get; set; }
         public Nullable<int> Project_ID { get; set; }
@@ -27,11 +21,11 @@ namespace projectmanager.DAL
         public Nullable<System.DateTime> Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
         public string Priority { get; set; }
-        public string Status { get; set; }
+        public Nullable<bool> Status { get; set; }
+        public Nullable<int> User_ID { get; set; }
     
         public virtual ParentTask ParentTask { get; set; }
         public virtual Projects Projects { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

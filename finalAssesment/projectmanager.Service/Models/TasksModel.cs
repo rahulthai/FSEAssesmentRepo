@@ -14,7 +14,8 @@ namespace projectmanager.Service.Models
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }
         public string Priority { get; set; }
-        public string Status { get; set; }
+        public bool? Status { get; set; }
+        public int? User_ID { get; set; }
         public bool IsParentTask { get; set; }
     }
 }

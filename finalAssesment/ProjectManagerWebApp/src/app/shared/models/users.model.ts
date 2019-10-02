@@ -5,4 +5,5 @@ export class Users {
     Employee_ID: String;
     Project_ID: Number;
     Task_ID: Number;
+    FullName:string;
   }

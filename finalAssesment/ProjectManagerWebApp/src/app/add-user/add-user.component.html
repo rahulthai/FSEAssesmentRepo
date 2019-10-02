@@ -1,5 +1,5 @@
 <div class="col-md-6">
-<form ngNativeValidate #addUserForm="ngForm"  (ngSubmit)="onSubmit(addUserForm)"> 
+<form ngNativeValidate #addUserForm="ngForm" (ngSubmit)="onSubmit(addUserForm)"> 
     <div class="form-group">
       <label for="FirstName">First Name*</label>
       <input type="text" #FirstName class="form-control" [(ngModel)]="user.FirstName" placeholder="First Name" name="FirstName" required>

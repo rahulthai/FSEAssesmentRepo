@@ -4,4 +4,6 @@ export class Projects {
     StartDate: Date;
     EndDate: Date;
     Priority: string;
+    name:string;
+    User_ID:number;
   }

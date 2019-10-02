@@ -14,6 +14,13 @@ namespace projectmanager.DAL
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Projects1 = new HashSet<Projects>();
+            this.Tasks = new HashSet<Tasks>();
+        }
+    
         public int User_ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -22,6 +29,9 @@ namespace projectmanager.DAL
         public Nullable<long> Task_ID { get; set; }
     
         public virtual Projects Projects { get; set; }
-        public virtual Tasks Tasks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Projects> Projects1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tasks> Tasks { get; set; }
     }
 }

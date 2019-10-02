@@ -1,11 +1,19 @@
 <!-- Default horizontal form -->
-<form>
-        <!-- Grid row -->
+<div class="col-md-12">
+<form ngNativeValidate #addProjectForm="ngForm"  (ngSubmit)="onSubmit(addProjectForm)">
+        <div *ngIf="error.isError" class="alert alert-danger col-sm-7">
+            <button type="button" class="close" aria-label="Close" (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span></button>
+          {{ error.errorMessage }}
+      </div>     
+
+  <!-- Grid row -->
         <div class="form-group row">
           <!-- Default input -->
-          <label for="inputproject" class="col-sm-2 col-form-label">Project</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputproject" placeholder="Project">
+          <div class="col-sm-1">
+          <label for="Project" class="col-form-label" >Project</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="Project" [(ngModel)]="project.Project" placeholder="Project" required>
           </div>
         </div>
         <!-- Grid row -->
@@ -13,38 +21,58 @@
         <!-- Grid row -->
         <div class="form-group row">
           <!-- Default input -->
-          <div class="offset-sm-2 col-sm-10" style="display: inherit">
-                <input type="checkbox" class="form-check-input" id="setstartdateenddate">
-                <label class="form-check-label col-sm-3" for="setstartdateenddate">Set Start Date and End Date</label>
-                <input type="date" class="form-control col-sm-2" id="startdate" placeholder="Start Date">
-                <input type="date" class="form-control col-sm-2" id="enddate" placeholder="END Date">
-          </div>
+          
+          <div class="offset-sm-1 col-sm-6" style="display: inherit">
+                <input type="checkbox" class="form-check-input checkboxmargin" name="checkbox" [checked]="checkbox"  [(ngModel)]='checkbox' (ngModelChange)='onCheckboxChange()'>
+                <label class="form-check-label checklabel col-sm-4" for="StartDate">Set Start and End Date</label>
+                <input type="date" class="form-control col-sm-4" name="StartDate"
+                 [disabled]="!enablefields" [required]="enablefields ? true : null"  [ngModel]="project.StartDate | date:'yyyy-MM-dd'" 
+                 (ngModelChange)="project.StartDate=$event" placeholder="Start Date"  #searchStartDate>
+                <!-- (change)="updateStartDateModel(project.StartDate)" -->
+                <input type="date" class="form-control col-sm-4" name="EndDate" 
+                [disabled]="!enablefields" [required]="enablefields ? true : null" [ngModel]="project.EndDate | date:'yyyy-MM-dd'"
+                 (ngModelChange)="project.EndDate=$event" placeholder="End Date" #searchEndDate>
+                 <!-- <input type="date"  
+                 [ngModel]="today | date:'yyyy-MM-dd'"  
+                 (ngModelChange)="today = $event"    
+                 name="dt" 
+                 class="form-control  col-sm-4" #searchDate >  -->
+              </div>
         </div>
         <!-- Grid row -->
         <!-- Grid row -->
         <div class="form-group row">
                 <!-- Default input -->
-                <label for="inputpriority" class="col-sm-2 col-form-label">Priority</label>
-                <div class="col-sm-10">
-                  <input type="range" min="0" max="30" step="1" value="5" class="form-control col-sm-3  "  id="inputpriority" placeholder="Priority"  oninput="range1value.value = inputpriority.valueAsNumber">
-                  <output name="range1value" for="inputpriority">5</output>
+                <div class="col-sm-1">
+                <label for="Priority" class="col-form-label">Priority</label>
+              </div>
+                <div class="col-sm-6">
+                  <input type="range" min="0" max="30" step="1" name="Priority" 
+                  [ngModel]="project.Priority" [value]="project.Priority"  
+                  class="form-control col-sm-3 " placeholder="Priority"  
+                 
+                   (input)="setPriority($event)" required>
+                    <!-- oninput="range1value.value = Priority.valueAsNumber" -->
+                  <output name="range1value" for="Priority">{{project.Priority}}</output>
                 </div>
               </div>
       <!-- Grid row -->
       <div class="form-group row">
             <!-- Default input -->
-            <label for="inputmanager" class="col-sm-2 col-form-label">Manager</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control col-sm-3" id="inputmanager" placeholder="Manager"><input type="button" class="form-control col-sm-2" value="Search">
+            <div class="col-sm-1">
+                <label for="inputmanager" class="col-form-label">Manager</label>
             </div>
-          </div>
+                <div class="col-sm-6 row">
+              <input type="text" class="form-control col-sm-4" [(ngModel)]="project.name" name="name" (click)="openModal()"  required placeholder="Manager" disabled="true">
+              <input type="button" class="form-control btn btn-secondary col-sm-2" (click)="openModal()" value="Search" required>
+            </div>
+      </div>
         <!-- Grid row -->
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <input type="button" class="btn btn-primary" value="Add"/>&nbsp;&nbsp;
-            <input type="reset" class="btn btn-primary" value="Reset"/>
+        <div class="form-group btn-toolbar">
+            <button type="submit" class="btn btn-primary btn-sm btn-space">{{ project?.Project_ID == Undefined ? 'Add Project' : 'Update Project' }}</button>
+            <input type="reset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
           </div>
-        </div>
         <!-- Grid row -->
       </form>
       <!-- Default horizontal form -->
+    </div>

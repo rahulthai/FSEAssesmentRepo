@@ -117,6 +117,7 @@ namespace projectmanager.Service.Controllers.Tests
             proj.StartDate = DateTime.Parse("06/23/2019");
             proj.EndDate = DateTime.Parse("08/31/2019");
             proj.Priority = "10";
+           
 
             var result = ProjectController.UpdateProject(proj);
             result.Result.Should().BeTrue();

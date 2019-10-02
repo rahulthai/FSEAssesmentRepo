@@ -7,12 +7,13 @@
       <Diagram DiagramId="822bf08d831b4f02b0b02be70d285042" Name="Diagram1">
         <EntityTypeShape EntityType="ProjectManagerModel.ParentTask" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectManagerModel.Projects" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjectManagerModel.Tasks" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectManagerModel.Users" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
-        <AssociationConnector Association="ProjectManagerModel.FK_ParentTask_Task" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectManagerModel.FK_Project_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjectManagerModel.FK_Task_Project" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjectManagerModel.FK_Task_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK_Users_Projects" />
+        <EntityTypeShape EntityType="ProjectManagerModel.Tasks" Width="1.5" PointX="7.5" PointY="1.875" />
+        <AssociationConnector Association="ProjectManagerModel.FK_ParentTask_Task" />
+        <AssociationConnector Association="ProjectManagerModel.FK_Task_Project" />
+        <AssociationConnector Association="ProjectManagerModel.FK_Users_Task" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

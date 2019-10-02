@@ -26,43 +26,48 @@ export class ProjectsService {
 
     addProject(item:Projects){
  
-      let body = JSON.stringify(item);
+      //let body = JSON.stringify(item);
        
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-       
+      let headers = new Headers({ 'Content-Type': 'application/json'
+      ,'Access-Control-Allow-Origin':'*' ,
+      "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    });
+    
       let options = new RequestOptions({ headers: headers });
        
-       return this._http.post(this.url,body, options)
+       return this._http.post(this.url+"InsertProjectAsync",item, options)
        
       .pipe(map((response:Response)=>response.json()));
        
        }
        
-      getProjectId(id:any){
-       
-      return this._http.get(this.url+id)
+      getProjectByID(id:any){
+       console.log("service id "+id);
+      return this._http.get(this.url+"GetProjectAsync/"+id)
        
        .pipe(map((response:Response)=>response.json()));
        
        }
        
-      editProject(item:Projects){
+      editProject(item:number){
        
       let body = JSON.stringify(item);
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      return this._http.put(this.url+item.Project_ID, body, options)
+      return this._http.put(this.url+"UpdateProject/"+item, body, options)
       .pipe(map((response:Response)=>response.json()));
        
        }  
 
        deleteProject(id:any){
        
-        return this._http.delete(this.url+id)
+        return this._http.delete(this.url+"DeleteProject/"+id)
          
          .pipe(map((response:Response)=>response.json()));
          
          }
+
 
 
 }
