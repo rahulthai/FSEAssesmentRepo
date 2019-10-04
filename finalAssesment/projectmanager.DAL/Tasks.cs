@@ -23,6 +23,7 @@ namespace projectmanager.DAL
         public string Priority { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<int> User_ID { get; set; }
+        public string TaskStatus { get; set; }
     
         public virtual ParentTask ParentTask { get; set; }
         public virtual Projects Projects { get; set; }

@@ -32,6 +32,7 @@
     <Property Name="Priority" Type="nvarchar" MaxLength="10" />
     <Property Name="Status" Type="bit" />
     <Property Name="User_ID" Type="int" />
+    <Property Name="TaskStatus" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Users">
     <Key>

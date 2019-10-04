@@ -31,7 +31,7 @@ export class AddProjectComponent implements OnInit {
 
   constructor(public modalService: NgbModal,
               private projectsService: ProjectsService) { 
-    console.log("consustructor project");
+    console.log("constructor project");
     console.log(this.project);
     this.checkbox=true;
     this.enablefields= true;
@@ -123,7 +123,12 @@ console.log(this.project);
         console.log('form validated');
         console.log(form.value);
         console.log(this.project);
+        if(this.project.Project_ID==undefined || this.project.Project_ID<=0){ 
         this.addProject(this.project);
+        }else{
+        this.updateProject(this.project);
+
+        }
       }
    //this.viewUsersComponent.getUsersList();
   
@@ -163,6 +168,22 @@ console.log(value);
     this.projectsService.addProject(item)
         .subscribe(projects => {projects;
           console.log('project added successfully')
+          console.log(that.project);
+          that.project = new Projects();
+          that.project.Priority="0";
+          that.checkbox=true;
+          that.project.StartDate =  new Date();
+          that.project.EndDate = that.addDays( new Date() , 1);
+          console.log(that.project);
+          this.onAddedProject.emit();
+        });
+  }
+
+  updateProject(item:Projects): void {
+    let that= this;
+    this.projectsService.updateProject(item)
+        .subscribe(projects => {projects;
+          console.log('project updated successfully')
           console.log(that.project);
           that.project = new Projects();
           that.project.Priority="0";

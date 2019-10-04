@@ -14,6 +14,9 @@ import { TasksComponent } from './tasks/tasks.component';
 import { UsersComponent } from './users/users.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsermodalComponent } from './modal/usermodal/usermodal.component';
+//import { ParenttaskmodalComponent } from './modal/parenttaskmodal/parenttaskmodal.component';
+// import { AddTaskComponent } from './add-task/add-task.component';
+// import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 
 
 //import { AddUserComponent } from './add-user/add-user.component';
@@ -26,6 +29,14 @@ import { UsermodalComponent } from './modal/usermodal/usermodal.component';
     AppComponent,
     
     MenuComponent
+    
+  
+    
+    //ParenttaskmodalComponent,
+    
+    // AddTaskComponent,
+    
+    // ViewTasksComponent
        
     //,AddUserComponent,
     

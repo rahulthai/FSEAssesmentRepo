@@ -53,7 +53,7 @@ deleteAlert(index){
      //console.log(document.querySelector("user"));
      //console.log('seelctor');
     //this.user.userid = this.selectedValue;
-    if(this.user.userid>0 && this.user.name!=""){
+    if(this.user.userid>0 && this.user.Fullname!=""){
       this.passEntry.emit(this.user);
       this.activeModal.close(this.user);
     }

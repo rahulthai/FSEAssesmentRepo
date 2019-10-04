@@ -10,12 +10,17 @@ namespace projectmanager.Service.Models
         public long Task_ID { get; set; }
         public string Task { get; set; }
         public long? Parent_ID { get; set; }
+        public string ParentTask { get; set; }
         public int? Project_ID { get; set; }
-        public DateTime Start_Date { get; set; }
-        public DateTime End_Date { get; set; }
+        public string Project { get; set; }
+        public DateTime? Start_Date { get; set; }
+        public DateTime? End_Date { get; set; }
         public string Priority { get; set; }
         public bool? Status { get; set; }
         public int? User_ID { get; set; }
+        public string Name { get; set; }
         public bool IsParentTask { get; set; }
+        public string TaskStatus { get; set; }
+
     }
 }

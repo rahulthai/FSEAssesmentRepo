@@ -68,9 +68,14 @@ console.log(this.user);
     
     if(form.valid){
     console.log('form validated');
-console.log(form.value);
-console.log(this.user);
-   this.addUser(this.user);
+    console.log(form.value);
+    console.log(this.user);
+    if(this.user.User_ID==undefined || this.user.User_ID<=0){   
+      this.addUser(this.user);
+    }
+    else{
+      this.updateUser(this.user);
+    }
    //this.viewUsersComponent.getUsersList();
   
     }
@@ -90,6 +95,16 @@ console.log(this.user);
     this.usersService.addUser(item)
         .subscribe(users => {this.user = users;
           console.log('user added successfully')
+          this.onAddedUser.emit();
+        });
+  }
+
+
+
+  updateUser(item:Users): void {
+    this.usersService.updateUser(item)
+        .subscribe(users => {this.user = users;
+          console.log('user updated successfully')
           this.onAddedUser.emit();
         });
   }

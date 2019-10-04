@@ -16,5 +16,7 @@ namespace projectmanager.Service.Models
         public int? User_ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int TaskCount { get; set; }
+        public int CompletedTaskCount { get; set; }
     }
 }

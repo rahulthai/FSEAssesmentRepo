@@ -38,6 +38,41 @@ namespace projectmanager.Service.Tests.Repository
         {
             _counter = context.GetCounter("TestCounter");
 
+            var userparam = new Users
+            {
+                User_ID = 1,
+                FirstName = "Rahul",
+                LastName = "Thai",
+                Employee_ID = "359696"
+
+            };
+
+            var tasks = new List<Tasks>() {
+               new Tasks() {  Task_ID = 1,
+                    Task ="Task first testing",
+                    Start_Date =DateTime.Parse("09-08-2015"),
+                    End_Date =DateTime.Parse("09-13-2015"),
+                    Priority ="13",
+                    Project_ID=1,
+                    Status = true,
+                    TaskStatus= null,
+                    User_ID = 1,
+                    ParentTask= new ParentTask{ Parent_ID = 2, Parent_Task ="Task First testing" }
+            },
+            new Tasks() {  Task_ID = 4,
+                    Task ="Task for cleanup and testing",
+                    Start_Date =DateTime.Parse("05-06-2016"),
+                    End_Date =DateTime.Parse("05-22-2016"),
+                    Priority ="7",
+                    Project_ID=1,
+                    Status = true,
+                    TaskStatus = "Completed",
+                    User_ID = 3,
+                    ParentTask = new ParentTask()
+                }
+
+            };
+
             var projects = new List<Projects>() {
             new Projects() {  Project_ID = 1,
                     Project ="Dotnet",
@@ -45,7 +80,9 @@ namespace projectmanager.Service.Tests.Repository
                     EndDate =DateTime.Parse("09-13-2015"),
                     Priority ="10",
                     Status = true,
-                    User_ID = 1
+                    User_ID = 1,
+                    //Users = (ICollection<Users>)userparam,
+                    Tasks = tasks
             },
             new Projects() {  Project_ID = 4,
                     Project ="Java",
@@ -53,7 +90,10 @@ namespace projectmanager.Service.Tests.Repository
                     EndDate =DateTime.Parse("05-22-2016"),
                     Priority ="10",
                     Status = true,
-                    User_ID = 1}
+                    User_ID = 1,
+                    //Users = (ICollection<Users>)userparam,
+                    Tasks = tasks
+            }
             };
             var queryable = projects.AsQueryable();
 
@@ -71,6 +111,8 @@ namespace projectmanager.Service.Tests.Repository
 
             MockSet.Setup(m => m.Add(It.IsAny<Projects>())).Callback((Projects project) => projects.Add(project));
             MockSet.Setup(m => m.Remove(It.IsAny<Projects>())).Callback((Projects project) => projects.Remove(project));
+            MockSet.Setup(m => m.Include("Tasks")).Returns(MockSet.Object);
+            MockSet.Setup(m => m.Include("Users")).Returns(MockSet.Object);
 
 
             MockContext.Setup(m => m.Projects).Returns(MockSet.Object);
@@ -79,20 +121,62 @@ namespace projectmanager.Service.Tests.Repository
         public void Setup()
         {
 
+            var userparam = new Users
+            {
+                User_ID = 1,
+                FirstName = "Rahul",
+                LastName = "Thai",
+                Employee_ID = "359696"
+
+            };
+
+            var tasks = new List<Tasks>() {
+               new Tasks() {  Task_ID = 1,
+                    Task ="Task first testing",
+                    Start_Date =DateTime.Parse("09-08-2015"),
+                    End_Date =DateTime.Parse("09-13-2015"),
+                    Priority ="13",
+                    Project_ID=1,
+                    Status = true,
+                    TaskStatus= null,
+                    User_ID = 1,
+                    ParentTask= new ParentTask{ Parent_ID = 2, Parent_Task ="Task First testing" }
+            },
+            new Tasks() {  Task_ID = 4,
+                    Task ="Task for cleanup and testing",
+                    Start_Date =DateTime.Parse("05-06-2016"),
+                    End_Date =DateTime.Parse("05-22-2016"),
+                    Priority ="7",
+                    Project_ID=1,
+                    Status = true,
+                    TaskStatus = "Completed",
+                    User_ID = 3,
+                    ParentTask = new ParentTask()
+                }
+
+            };
+
             var projects = new List<Projects>() {
             new Projects() {  Project_ID = 1,
                     Project ="Dotnet",
                     StartDate =DateTime.Parse("09-08-2015"),
+                    EndDate =DateTime.Parse("09-13-2015"),
                     Priority ="10",
                     Status = true,
-                    User_ID = 1},
+                    User_ID = 1,
+                    //Users = (ICollection<Users>)userparam,
+                    Tasks = tasks
+            },
             new Projects() {  Project_ID = 4,
                     Project ="Java",
                     StartDate =DateTime.Parse("05-06-2016"),
                     EndDate =DateTime.Parse("05-22-2016"),
                     Priority ="10",
                     Status = true,
-                    User_ID = 1}
+                    User_ID = 1,
+                    //Users = (ICollection<Users>)userparam,
+                    Tasks = tasks
+            }
             };
             var queryable = projects.AsQueryable();
 
@@ -110,9 +194,11 @@ namespace projectmanager.Service.Tests.Repository
 
             MockSet.Setup(m => m.Add(It.IsAny<Projects>())).Callback((Projects project) => projects.Add(project));
 	        MockSet.Setup(m => m.Remove(It.IsAny<Projects>())).Callback((Projects project) => projects.Remove(project));
+            MockSet.Setup(m => m.Include("Tasks")).Returns(MockSet.Object);
+            MockSet.Setup(m => m.Include("Users")).Returns(MockSet.Object);
 
-           
-	        MockContext.Setup(m => m.Projects).Returns(MockSet.Object);
+
+            MockContext.Setup(m => m.Projects).Returns(MockSet.Object);
 
 			
             //ProjectController.dbContext = MockContext.Object;

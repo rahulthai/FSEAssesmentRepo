@@ -6,4 +6,6 @@ export class Projects {
     Priority: string;
     name:string;
     User_ID:number;
+    TaskCount:number;
+    CompletedTaskCount:number;
   }

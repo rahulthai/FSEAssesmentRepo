@@ -103,6 +103,7 @@
     <NavigationProperty Name="ParentTask" Relationship="ProjectManagerModel.FK_ParentTask_Task" FromRole="Tasks" ToRole="ParentTask" />
     <NavigationProperty Name="Projects" Relationship="ProjectManagerModel.FK_Task_Project" FromRole="Tasks" ToRole="Projects" />
     <NavigationProperty Name="Users" Relationship="ProjectManagerModel.FK_Users_Task" FromRole="Tasks" ToRole="Users" />
+    <Property Name="TaskStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_ParentTask_Task">
     <End Type="ProjectManagerModel.ParentTask" Role="ParentTask" Multiplicity="0..1" />

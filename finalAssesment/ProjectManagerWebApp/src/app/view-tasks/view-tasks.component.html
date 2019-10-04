@@ -1,0 +1,97 @@
+<h5>View Tasks</h5>
+<div class="col-md-10 container" #container>
+    <div>
+        <div class="row">
+                <input type="text" class="form-control  inputinline col-sm-10" [(ngModel)]="project" name="Project" placeholder="Search Project..." disabled="true">
+                <input type="button" class="form-control inputinline btn btn-secondary col-sm-2" (click)="openModal(1)" value="Project">
+        </div>
+        <div class="row" style="margin-top:5px;" *ngIf="tasks?.length > 0">
+            <div class="row col-md-4">
+                <input type="search" [(ngModel)]="searchText" searchText class="form-control" placeholder="Search for Task..."/>
+            </div>
+            <div class="col-md-8">
+                Sort By:
+                <a routerLink="." [class.active]="sortstring === 'Task'" class="sortlinks" (click)='sortresult("Task")' #btntask>Task</a>
+                <a  routerLink="."   [class.active]="sortstring === 'Start_Date'" class="sortlinks" (click)='sortresult("Start_Date")' #btnstartdate>Start Date</a> 
+                <a  routerLink="."   [class.active]="sortstring === 'End_Date'" class="sortlinks" (click)='sortresult("End_Date")' #btnenddate>End Date</a>
+                <a  routerLink="."   [class.active]="sortstring === 'Priority'" class="sortlinks" (click)='sortresult("Priority")' #btnpriority>Priority</a>
+                <a  routerLink="."   [class.active]="sortstring === 'TaskStatus'" class="sortlinks" (click)='sortresult("TaskStatus")' #btncompleted>Completed</a>
+            </div>
+        </div>
+    </div>
+<br>
+    <!-- <hr class="dotted"> -->
+    <div class="table-responsive">
+            <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th class="hidden">Id</th>
+                      <th>Task</th>
+                      <th>Parent Task</th>
+                      <th>Priority</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Edit / End Task</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let task of (tasks | filter:{Task:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+                      <td class="hidden">{{task.Task_ID}}</td>
+                      <td class="col-md-2">{{task.Task}}</td>
+                      <td>{{task.ParentTask?task.ParentTask:"N/A"}}</td>
+                      <td>{{task.Priority}}</td>
+                      <td>{{task.Start_Date | date: 'MM/dd/yyyy'}}</td>
+                      <td>{{task.End_Date | date: 'MM/dd/yyyy'}}</td>
+                      <td style="overflow:auto;display:inherit;">
+                        <button type="button"  *ngIf="task.TaskStatus!='Completed'" value="Edit" class="btn btn-secondary btn-sm btn-margin"
+                            (click)='getTaskByID(task.Task_ID,container)'>Edit</button>
+                        <button type="button"  *ngIf="task.TaskStatus!='Completed'" value="End Task" class="btn btn-danger btn-sm btn-margin"
+                            (click)='deleteTask(task.Task_ID, task)'>End Task</button>  
+                            <span *ngIf="task.TaskStatus=='Completed'" class="btn-margin">
+                                    Task Completed
+                                 </span>
+                        </td>
+                    </tr>
+                    <tr *ngIf="tasks?.length == 0">
+                        <td colspan="7">
+                                <span class="search_no_results">
+                                        No task(s) available to display
+                                     </span> 
+                        </td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+
+
+        <!-- <ul class="list-group" #taskslist>
+            <li class="list-group-item" *ngFor="let task of (tasks | filter:{Task:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>Task :<label>{{task.Task}}</label></div>
+                        <div>Start Date :<label>{{task.Start_Date | date: 'MM/dd/yyyy'}}</label></div>
+                        <div>End Date :<label>{{task.End_Date | date: 'MM/dd/yyyy'}}</label></div>
+                        <div>Priority :<label>{{task.Priority}}</label></div>
+                        <div>Project :<label>{{task.Project}}</label></div>
+                        <div>Parent Task :<label>{{task.ParentTask}}</label></div>
+                        <div>User :<label>{{task.Name}}</label></div>
+                    </div>
+                    <div class="col-md-2"  *ngIf="task.TaskStatus!='Completed'">
+                        <button type="button" value="Edit" class="btn btn-secondary btn-sm btn-margin"
+                        (click)='getTaskByID(task.Task_ID)'>Edit</button>
+                    <button type="button" value="End Task" class="btn btn-danger btn-sm btn-margin"
+                        (click)='deleteTask(task.Task_ID, task)'>End Task</button></div>
+                </div>
+            </li>
+            <li  *ngIf="tasks?.length == 0">
+                <span class="search_no_results">
+                   No Tasks found to display
+                </span>
+            </li>
+            
+        </ul> -->
+        <!-- <p *ngIf="!taskslist.rows.length">No results</p> -->
+
+    </div>
+    <div></div>
+    </div>

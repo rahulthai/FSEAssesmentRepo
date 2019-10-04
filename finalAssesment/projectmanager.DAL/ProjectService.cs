@@ -17,12 +17,14 @@ namespace projectmanager.DAL
 
         public async Task<List<Projects>> GetAllProjects()
         {
-            return await _DbContext.Projects.Include(x=>x.Tasks).Include(x => x.Users).Where(x=>x.Status==true).ToListAsync();
+            return await _DbContext.Projects.Include(x=>x.Tasks)
+                          .Include(x => x.Users)
+                          .Where(x=>x.Status==true).ToListAsync();
         }
 
         public async Task<Projects> GetProject(int project_ID)
         {
-            return await _DbContext.Projects.Include(u =>u.Users).Where(p => p.Project_ID == project_ID && p.Status==true).FirstOrDefaultAsync();
+            return await _DbContext.Projects.Include(u =>u.Users).Include(u => u.Tasks).Where(p => p.Project_ID == project_ID && p.Status==true).FirstOrDefaultAsync();
         }
         public async Task<bool> InsertProject(Projects ProjectItem)
         {

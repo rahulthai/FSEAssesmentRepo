@@ -38,12 +38,25 @@ namespace projectmanager.Service.Controllers
             projService = new ProjectService(dbContext);
             List<Projects> prodList = await projService.GetAllProjects();
             List<ProjectsModel> projectsModelList = new List<ProjectsModel>();
-            AutoMapper.Mapper.Map(prodList, projectsModelList);
+
+            var projectsList = prodList.Select(x => new ProjectsModel
+            {
+                Project_ID = x.Project_ID,
+                Project = x.Project,
+                Priority = x.Priority,
+                StartDate = x.StartDate,
+                EndDate = x.EndDate,
+                User_ID = x.User_ID,
+                TaskCount = x.Tasks != null ? x.Tasks.Where(t => t.Status == true).Count() : 0,
+                CompletedTaskCount = x.Tasks != null ? x.Tasks.Where(t => t.Status == false && t.TaskStatus.Contains("Completed")).Count() : 0
+
+            }).ToList();
+          // AutoMapper.Mapper.Map(projectsList, projectsModelList);
             //foreach (var item in prodList)
             //{
             //    projectsModelList.Add(item);
             //}
-            return Json<List<ProjectsModel>>(projectsModelList);
+            return Json<List<ProjectsModel>>(projectsList);
         }
         [HttpGet]
         public async Task<JsonResult<ProjectsModel>> GetProjectAsync(int id)

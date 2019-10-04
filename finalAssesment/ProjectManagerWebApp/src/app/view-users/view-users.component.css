@@ -16,3 +16,8 @@ margin-top:5px;
 .active{
     background: yellow;
 }
+
+
+input{
+    font-size:13px;
+  }

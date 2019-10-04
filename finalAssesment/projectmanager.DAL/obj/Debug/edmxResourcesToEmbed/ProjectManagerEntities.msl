@@ -37,6 +37,7 @@
     <EntitySetMapping Name="Tasks">
       <EntityTypeMapping TypeName="ProjectManagerModel.Tasks">
         <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
           <ScalarProperty Name="User_ID" ColumnName="User_ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />

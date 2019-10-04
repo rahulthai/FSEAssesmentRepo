@@ -15,12 +15,19 @@ import { ViewUsersComponent } from './view-users/view-users.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { UsermodalComponent } from './modal/usermodal/usermodal.component';
 import { ProjectmodalComponent } from './modal/projectmodal/projectmodal.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { ViewTasksComponent } from './view-tasks/view-tasks.component';
+import { ParenttaskmodalComponent } from './modal/parenttaskmodal/parenttaskmodal.component';
+import { TaskslistComponent } from './taskslist/taskslist.component';
+
+
 
 //const routes: Routes = [];
 const appRoutes: Routes = [
   { path: 'Projects', component: ProjectsComponent },
   { path: 'Tasks', component: TasksComponent },
-  { path: 'Users', component: UsersComponent }
+  { path: 'Users', component: UsersComponent },
+  { path: 'ViewTasks', component: TaskslistComponent},
 ];
 
 
@@ -38,10 +45,10 @@ const appRoutes: Routes = [
     ,AddUserComponent,
     ViewUsersComponent,
     UsermodalComponent,
-    ProjectmodalComponent
-    
+    ProjectmodalComponent,
+    AddTaskComponent, ViewTasksComponent,ParenttaskmodalComponent,TaskslistComponent
   ],
-  entryComponents: [ UsermodalComponent ]
+  entryComponents: [ UsermodalComponent ,ProjectmodalComponent,ParenttaskmodalComponent ]
 
 })
 export class AppRoutingModule { }

@@ -44,6 +44,24 @@ export class UsersService {
       .pipe(map((response:Response)=>response.json()));
        
        }
+
+       updateUser(item:Users){
+ 
+        //let body = JSON.stringify(item);
+         
+        let headers = new Headers({ 'Content-Type': 'application/json'
+        ,'Access-Control-Allow-Origin':'*' ,
+        "Access-Control-Allow-Methods": "DELETE, POST, PUT, GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+      });
+      
+        let options = new RequestOptions({ headers: headers });
+         
+         return this._http.put(this.url+"UpdateUser",item, options)
+         
+        .pipe(map((response:Response)=>response.json()));
+         
+         }
        
       getUserByID(id:any){
        console.log("service id "+id);

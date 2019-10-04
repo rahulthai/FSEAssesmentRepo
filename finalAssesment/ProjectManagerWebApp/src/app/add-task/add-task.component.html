@@ -1,0 +1,118 @@
+<!-- Default horizontal form -->
+<div class="col-md-12" *ngIf="showaddtasks">
+        <form ngNativeValidate #addTaskForm="ngForm"  (ngSubmit)="onSubmit(addTaskForm)">
+                <div *ngIf="error.isError" class="alert alert-danger col-sm-7">
+                    <button type="button" class="close" aria-label="Close" 
+                      (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span>
+                    </button>
+                  {{ error.errorMessage }}
+              </div>     
+        
+          <!-- Grid row -->
+          <div class="form-group row">
+              <!-- Default input -->
+              <div class="col-sm-2">
+                  <label for="inputproject" class="col-form-label">Project</label>
+              </div>
+                  <div class="col-sm-5 row">
+                <input type="text" class="form-control  inputinline col-sm-8" [(ngModel)]="task.Project" name="Project" (click)="openModal(1)"  required placeholder="Project" disabled="true">
+                <input type="button" [disabled]="task.Task_ID>=0?true:!enablefields" class="form-control inputinline btn btn-secondary col-sm-4" (click)="openModal(1)" value="Search">
+              </div>
+        </div>     
+          <div class="form-group row">
+                  <!-- Default input -->
+                  <div class="col-sm-2">
+                  <label for="Task" class="col-form-label" >Task Description</label>
+                  </div>
+                  <div class="col-sm-5 row">
+                    <input type="text" class="form-control" name="Task" 
+                    [(ngModel)]="task.Task" placeholder="Enter Task" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <!-- Default input -->
+                    
+                    <div class="offset-sm-2">
+                    </div>
+                      <div class="col-sm-5 row checkboxmargin">
+                          <input type="checkbox" class="form-check-input inputinline" 
+                          name="checkbox" [checked]="checkbox"  [(ngModel)]='checkbox' 
+                          (ngModelChange)='onCheckboxChange()'>
+                          <label class="form-check-label checklabel" 
+                          for="StartDate">Parent Task</label>
+                    </div>  
+                  </div> 
+                <!-- Grid row -->
+                
+                <!-- Grid row -->
+                <div class="form-group row">
+                    <!-- Default input -->
+                    <div class="col-sm-2">
+                    <label for="Priority" class="col-form-label">Priority</label>
+                  </div>
+                    <div class="col-sm-5 row">
+                      <input type="range" min="0" max="30" step="1" name="Priority" 
+                      [ngModel]="task.Priority" [value]="task.Priority"  
+                      class="form-control" placeholder="Priority"  [disabled]="!enablefields"
+                     
+                       (input)="setPriority($event)" required>
+                        <!-- oninput="range1value.value = Priority.valueAsNumber" -->
+                      <output name="range1value" for="Priority">{{task.Priority}}</output>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <!-- Default input -->
+                      <div class="col-sm-2">
+                          <label for="inputparenttask" class="col-form-label">Parent Task</label>
+                      </div>
+                          <div class="col-sm-5 row">
+                        <input type="text" class="form-control inputinline col-sm-8" [(ngModel)]="task.ParentTask" name="ParentTask" (click)="openModal(2)"  required placeholder="Parent task" disabled="true">
+                        <input type="button" [disabled]="!enablefields" class="form-control inputinline btn btn-secondary col-sm-4" (click)="openModal(2)" value="Search">
+                      </div>
+                </div>
+
+                  <div class="form-group row">
+                      <div class="col-sm-2">
+                          <label for="inputstartdate" class="col-form-label">Start Date</label>
+                      </div>
+                      <div class="col-sm-2 row">  
+                      <input type="date" class="form-control" name="Start_Date"
+                         [disabled]="!enablefields" [required]="enablefields ? true : null"  [ngModel]="task.Start_Date | date:'yyyy-MM-dd'" 
+                         (ngModelChange)="task.Start_Date=$event" placeholder="Start Date"  #searchStartDate>
+                        </div>
+                         <!-- (change)="updateStartDateModel(task.StartDate)" -->
+                         <div class="col-sm-1 marginleft30">
+                            <label for="inputenddate" class="col-form-label">End Date</label>
+                        </div>
+                        <div class="col-sm-2 row"> 
+                        <input type="date" class="form-control" name="End_Date" 
+                        [disabled]="!enablefields" [required]="enablefields ? true : null" [ngModel]="task.End_Date | date:'yyyy-MM-dd'"
+                         (ngModelChange)="task.End_Date=$event" placeholder="End Date" #searchEndDate>
+                        </div>
+                      </div>
+
+                <!-- Grid row -->
+                <!-- Grid row -->
+                
+              <!-- Grid row -->
+              <div class="form-group row">
+                    <!-- Default input -->
+                    <div class="col-sm-2">
+                        <label for="inputuser" class="col-form-label">User</label>
+                    </div>
+                        <div class="col-sm-5 row">
+                      <input type="text" class="form-control inputinline col-sm-8" [(ngModel)]="task.Name" name="Name" (click)="openModal(3)"  required placeholder="User" disabled="true">
+                      <input type="button" [disabled]="!enablefields" class="form-control inputinline btn btn-secondary col-sm-4" (click)="openModal(3)" value="Search">
+                    </div>
+              </div>
+                <!-- Grid row -->
+                <div class="form-group btn-toolbar">
+                    <button type="submit" class="btn btn-primary btn-sm btn-space">{{ task?.Task_ID == Undefined ? 'Add Task' : 'Update Task' }}</button>
+                    <input type="reset" *ngIf="showreset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
+                    <input type="button" *ngIf="!showreset" class="btn btn-secondary btn-sm btn-space" (click)="hideModel()" value="Cancel">
+                  </div>
+                <!-- Grid row -->
+              </form>
+              <!-- Default horizontal form -->
+            </div>
+            <hr *ngIf="showaddtasks">

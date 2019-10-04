@@ -61,26 +61,26 @@ namespace projectmanager.DAL
             return status;
         }
 
-        public async Task<bool> UpdateUserProjectTask(int userid, int? projectid, int? taskid )
-        {
-            bool status;
-            try
-            {
-                Users userItem = _DbContext.Users.Where(p => p.User_ID == userid).FirstOrDefault();
-                if (userItem != null)
-                {
-                    userItem.Project_ID = projectid;
-                    userItem.Task_ID = taskid;
-                    await _DbContext.SaveChangesAsync();
-                }
-                status = true;
-            }
-            catch (Exception)
-            {
-                status = false;
-            }
-            return status;
-        }
+        //public async Task<bool> UpdateUserProjectTask(int userid, int? projectid, int? taskid )
+        //{
+        //    bool status;
+        //    try
+        //    {
+        //        Users userItem = _DbContext.Users.Where(p => p.User_ID == userid).FirstOrDefault();
+        //        if (userItem != null)
+        //        {
+        //            userItem.Project_ID = projectid;
+        //            userItem.Task_ID = taskid;
+        //            await _DbContext.SaveChangesAsync();
+        //        }
+        //        status = true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        status = false;
+        //    }
+        //    return status;
+        //}
 
         public async Task<bool> DeleteUser(int user_id)
         {

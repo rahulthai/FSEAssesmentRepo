@@ -9,3 +9,6 @@
 input[required]{
     border: 1px solid orange !important;
 }
+input{
+    font-size:13px;
+}

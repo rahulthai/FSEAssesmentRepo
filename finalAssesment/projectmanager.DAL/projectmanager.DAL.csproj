@@ -51,15 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IContext.cs" />
+    <Compile Include="ITaskService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="IProjectService.cs" />
     <Compile Include="ParentTask.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="ParentTaskDAL.cs" />
     <Compile Include="UserService.cs" />
-    <Compile Include="UsersDAL.cs" />
-    <Compile Include="TasksDAL.cs" />
+    <Compile Include="TaskService.cs" />
     <Compile Include="ProjectService.cs" />
     <Compile Include="ProjectManagerEntities.Context.cs">
       <AutoGen>True</AutoGen>

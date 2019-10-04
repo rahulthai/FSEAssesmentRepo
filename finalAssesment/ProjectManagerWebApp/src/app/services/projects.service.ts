@@ -41,6 +41,24 @@ export class ProjectsService {
       .pipe(map((response:Response)=>response.json()));
        
        }
+
+       updateProject(item:Projects){
+ 
+        //let body = JSON.stringify(item);
+         
+        let headers = new Headers({ 'Content-Type': 'application/json'
+        ,'Access-Control-Allow-Origin':'*' ,
+        "Access-Control-Allow-Methods": "DELETE, POST,PUT, GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+      });
+      
+        let options = new RequestOptions({ headers: headers });
+         
+         return this._http.put(this.url+"UpdateProject",item, options)
+         
+        .pipe(map((response:Response)=>response.json()));
+         
+         }
        
       getProjectByID(id:any){
        console.log("service id "+id);
