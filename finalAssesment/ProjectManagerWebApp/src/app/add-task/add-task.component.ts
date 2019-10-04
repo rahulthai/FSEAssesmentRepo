@@ -33,6 +33,7 @@ export class AddTaskComponent implements OnInit {
 
   @Input() task : Tasks=new Tasks();
   @Output() onAddedTask = new EventEmitter<boolean>();
+  @Output() onHideEditTask = new EventEmitter<boolean>();
   @Input() checkbox: boolean;
   @Input() enablefields:boolean;
   @Input() showaddtasks :boolean;
@@ -283,9 +284,12 @@ export class AddTaskComponent implements OnInit {
       hideModel(){
         //console.log('this.showaddtasks '+ this.showaddtasks);
         //console.log('this.showreset '+ this.showreset);
+        console.log('this.screentype '+this.screentype);
         if(this.screentype=="view"){
-          this.showaddtasks=false;
-          this.showreset=false;
+           //this.showaddtasks=false;
+          // this.showreset=false;
+          //console.log('calling hideedittask');
+          this.onHideEditTask.emit();
         }
         else{
           this.showaddtasks=true;

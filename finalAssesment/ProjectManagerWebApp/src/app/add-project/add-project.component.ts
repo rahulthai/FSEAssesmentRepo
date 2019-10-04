@@ -165,8 +165,8 @@ console.log(value);
     this.project.Priority = "0";
     this.checkbox=true;
     //this.enablefields= false;
-    //this.project.StartDate =  new Date();
-    //this.project.EndDate = this.addDays( new Date() , 1);
+    this.project.StartDate =  new Date();
+    this.project.EndDate = this.addDays( new Date() , 1);
   }
 
   addProject(item:Projects): void {

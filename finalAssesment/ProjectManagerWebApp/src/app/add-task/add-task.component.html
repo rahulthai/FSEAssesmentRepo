@@ -108,7 +108,7 @@
                 <!-- Grid row -->
                 <div class="form-group btn-toolbar">
                     <button type="submit" class="btn btn-primary btn-sm btn-space">{{ task?.Task_ID == Undefined ? 'Add Task' : 'Update Task' }}</button>
-                    <input type="reset" *ngIf="showreset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
+                    <input type="button" *ngIf="showreset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
                     <input type="button" *ngIf="!showreset" class="btn btn-secondary btn-sm btn-space" (click)="hideModel()" value="Cancel">
                   </div>
                 <!-- Grid row -->

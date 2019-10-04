@@ -20,3 +20,4 @@ C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.DAL\obj
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.DAL\obj\Debug\projectmanager.DAL.csproj.CopyComplete
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.DAL\obj\Debug\projectmanager.DAL.dll
 C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.DAL\obj\Debug\projectmanager.DAL.pdb
+C:\Rahul\FSE\Repositories\FSEAssesmentRepo\FinalAssesment\projectmanager.DAL\obj\Debug\projectmanager.DAL.csprojAssemblyReference.cache

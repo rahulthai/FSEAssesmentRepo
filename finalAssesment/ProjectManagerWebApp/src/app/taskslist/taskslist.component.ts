@@ -24,10 +24,17 @@ export class TaskslistComponent implements OnInit {
     this.getTasksList();
   }
 
+  hideEditTaskParent(event){
+    console.log('this is parent Hide '+event);
+    this.showaddflag = false;
+    this.showresetflag=false;
+  }
+
   getTaskByID(event){
     console.log('this is parent '+event)
     this.taskid = event;
     this.showaddflag = true;
+    
     this.loadTaskData(this.taskid);
   }
 
@@ -43,7 +50,7 @@ export class TaskslistComponent implements OnInit {
           //   that.task.LastName=u.LastName;
           //   that.task.Employee_ID=u.Employee_ID;
           //this.ngOnInit();
-         
+         console.log(that.showaddflag);
           if(that.taskItem.Parent_ID==null || 
                 that.taskItem.Parent_ID==undefined  
                 ||that.taskItem.Parent_ID<=0){ 
@@ -57,7 +64,7 @@ export class TaskslistComponent implements OnInit {
                   that.ischeckbox = false;
                   that.isenablefields = true;
                   that.taskItem.Priority = that.taskItem.Priority!=null ? that.taskItem.Priority :"0";
-
+                  that.showaddflag = true;
 
                 } 
           console.log(that.taskItem);
