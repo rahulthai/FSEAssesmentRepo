@@ -177,6 +177,7 @@ export class AddTaskComponent implements OnInit {
       resetModel(){
     
         this.task = new Tasks();
+        this.task.Priority="0";
       }
     
       addTask(item:Tasks): void {

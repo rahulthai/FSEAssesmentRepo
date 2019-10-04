@@ -158,9 +158,15 @@ console.log(value);
     
   }
 
-  resetModel(){
-
+  resetModel(form: NgForm){
+    //form.reset();
     this.project = new Projects();
+    //this.project.Project_ID = 0;
+    this.project.Priority = "0";
+    this.checkbox=true;
+    //this.enablefields= false;
+    //this.project.StartDate =  new Date();
+    //this.project.EndDate = this.addDays( new Date() , 1);
   }
 
   addProject(item:Projects): void {

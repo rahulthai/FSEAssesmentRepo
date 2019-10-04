@@ -12,8 +12,8 @@
           <div class="col-sm-1">
           <label for="Project" class="col-form-label" >Project</label>
           </div>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" name="Project" [(ngModel)]="project.Project" placeholder="Project" required>
+          <div class="col-sm-6 row">
+            <input type="text" class="form-control" name="Project" [(ngModel)]="project.Project" placeholder="Project" maxlength="255" required>
           </div>
         </div>
         <!-- Grid row -->
@@ -22,14 +22,20 @@
         <div class="form-group row">
           <!-- Default input -->
           
-          <div class="offset-sm-1 col-sm-6" style="display: inherit">
-                <input type="checkbox" class="form-check-input checkboxmargin" name="checkbox" [checked]="checkbox"  [(ngModel)]='checkbox' (ngModelChange)='onCheckboxChange()'>
-                <label class="form-check-label checklabel col-sm-4" for="StartDate">Set Start and End Date</label>
-                <input type="date" class="form-control col-sm-4" name="StartDate"
+          <div class="offset-sm-1"></div>
+          <div class="col-sm-6" style="display: inherit">
+            <div class="row col-sm-4">
+                <input type="checkbox" class="form-check-input checkboxmargin" 
+                name="checkbox" [checked]="checkbox"  
+                [(ngModel)]='checkbox' (ngModelChange)='onCheckboxChange($event)'>
+                <label class="form-check-label checklabel" for="StartDate">Set Start and End Date</label>
+                </div>
+              <div  class="row col-sm-8">
+                <input type="date" class="form-control col-sm-5" name="StartDate"
                  [disabled]="!enablefields" [required]="enablefields ? true : null"  [ngModel]="project.StartDate | date:'yyyy-MM-dd'" 
                  (ngModelChange)="project.StartDate=$event" placeholder="Start Date"  #searchStartDate>
                 <!-- (change)="updateStartDateModel(project.StartDate)" -->
-                <input type="date" class="form-control col-sm-4" name="EndDate" 
+                <input type="date" class="form-control col-sm-5" style="margin-left:10px;" name="EndDate" 
                 [disabled]="!enablefields" [required]="enablefields ? true : null" [ngModel]="project.EndDate | date:'yyyy-MM-dd'"
                  (ngModelChange)="project.EndDate=$event" placeholder="End Date" #searchEndDate>
                  <!-- <input type="date"  
@@ -38,6 +44,7 @@
                  name="dt" 
                  class="form-control  col-sm-4" #searchDate >  -->
               </div>
+          </div>
         </div>
         <!-- Grid row -->
         <!-- Grid row -->
@@ -49,7 +56,7 @@
                 <div class="col-sm-6">
                   <input type="range" min="0" max="30" step="1" name="Priority" 
                   [ngModel]="project.Priority" [value]="project.Priority"  
-                  class="form-control col-sm-3 " placeholder="Priority"  
+                  class="form-control col-sm-9 " placeholder="Priority"  
                  
                    (input)="setPriority($event)" required>
                     <!-- oninput="range1value.value = Priority.valueAsNumber" -->
@@ -63,13 +70,13 @@
                 <label for="inputmanager" class="col-form-label">Manager</label>
             </div>
                 <div class="col-sm-6 row">
-              <input type="text" class="form-control col-sm-4" [(ngModel)]="project.name" name="name" (click)="openModal()"  required placeholder="Manager" disabled="true">
+              <input type="text" class="form-control col-sm-8" [(ngModel)]="project.name" name="name" (click)="openModal()"  required placeholder="Manager" disabled="true">
               <input type="button" class="form-control btn btn-secondary col-sm-2" (click)="openModal()" value="Search" required>
             </div>
       </div>
         <!-- Grid row -->
         <div class="form-group btn-toolbar">
-            <button type="submit" class="btn btn-primary btn-sm btn-space">{{ project?.Project_ID == Undefined ? 'Add Project' : 'Update Project' }}</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-space">{{ project?.Project_ID == Undefined || project?.Project_ID<=0  ? 'Add Project' : 'Update Project' }}</button>
             <input type="reset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
           </div>
         <!-- Grid row -->

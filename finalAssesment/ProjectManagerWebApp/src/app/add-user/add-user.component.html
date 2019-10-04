@@ -2,15 +2,15 @@
 <form ngNativeValidate #addUserForm="ngForm" (ngSubmit)="onSubmit(addUserForm)"> 
     <div class="form-group">
       <label for="FirstName">First Name*</label>
-      <input type="text" #FirstName class="form-control" [(ngModel)]="user.FirstName" placeholder="First Name" name="FirstName" required>
+      <input type="text" #FirstName class="form-control" [(ngModel)]="user.FirstName"  maxlength="75" placeholder="First Name" name="FirstName" required>
     </div>
     <div class="form-group">
       <label for="LastName">Last Name*</label>
-      <input type="text" class="form-control" [(ngModel)]="user.LastName" placeholder="Last Name"  name="LastName" required>
+      <input type="text" class="form-control" [(ngModel)]="user.LastName" placeholder="Last Name"  maxlength="75"  name="LastName" required>
     </div>
     <div class="form-group">
       <label for="Employee_ID">Employee ID*</label>
-      <input type="text" class="form-control" [(ngModel)]="user.Employee_ID" placeholder="Employee ID" name="EmployeeID" required>
+      <input type="text" class="form-control" [(ngModel)]="user.Employee_ID" placeholder="Employee ID"  maxlength="20" name="EmployeeID" required>
 
     </div>
   <div class="form-group btn-toolbar">
