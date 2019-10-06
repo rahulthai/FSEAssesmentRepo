@@ -51,7 +51,7 @@ console.log(this.project);
           this.project.EndDate = this.addDays( new Date() , 1);
         }
         this.project.Priority="0";
-        this.project.name="";
+        this.project.Name="";
 
     }
    
@@ -208,7 +208,7 @@ console.log(this.userObj);
     modalRef.componentInstance.user = this.userObj;
     modalRef.result.then((result) => {
       if (result) {
-        this.project.name = result.Fullname;
+        this.project.Name = result.Fullname;
         this.project.User_ID = result.userid;
         console.log("result");
         console.log(result);

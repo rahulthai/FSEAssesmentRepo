@@ -18,5 +18,7 @@ namespace projectmanager.Service.Models
         public string LastName { get; set; }
         public int TaskCount { get; set; }
         public int CompletedTaskCount { get; set; }
+        public string Name { get; set; }
+
     }
 }

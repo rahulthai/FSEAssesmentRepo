@@ -66,8 +66,23 @@ namespace projectmanager.Service.Controllers
             projService = new ProjectService(dbContext);
             Projects dalProject = await projService.GetProject(id);
             ProjectsModel Projects = new ProjectsModel();
+
+            if (dalProject != null)
+            {
+                Projects.Project_ID = dalProject.Project_ID;
+                Projects.Project = dalProject.Project;
+                Projects.StartDate = dalProject.StartDate;
+                Projects.EndDate = dalProject.EndDate;
+                Projects.Priority = dalProject.Priority;
+                Projects.User_ID = dalProject.User_ID;
+                Projects.Name = dalProject.Users1 != null ? dalProject.Users1.FirstName + " " + dalProject.Users1.LastName : "";
+            }
+            else
+            {
+                throw new Exception("Project not available");
+            }
             //Projects = mapObj.Translate(dalProject);
-            AutoMapper.Mapper.Map(dalProject, Projects);
+            //AutoMapper.Mapper.Map(dalProject, Projects);
 
             return Json<ProjectsModel>(Projects);
         }

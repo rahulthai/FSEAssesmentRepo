@@ -193,6 +193,7 @@ export class AddTaskComponent implements OnInit {
               that.task.Start_Date =  new Date();
               that.task.End_Date = that.addDays( new Date() , 1);
               console.log(that.task);
+              console.log('taskid '+ that.task.Task_ID);
               
               this.onAddedTask.emit();
             });

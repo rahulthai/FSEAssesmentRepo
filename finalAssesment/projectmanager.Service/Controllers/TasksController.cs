@@ -69,21 +69,27 @@ namespace projectmanager.Service.Controllers
             taskService = new TaskService(dbContext);
             Tasks dalTask = await taskService.GetTask(id);
             TasksModel Tasks = new TasksModel();
-            Tasks.Task_ID = dalTask.Task_ID;
-            Tasks.Task = dalTask.Task;
-            Tasks.Parent_ID = dalTask.Parent_ID;
-            Tasks.ParentTask = dalTask.ParentTask != null ? dalTask.ParentTask.Parent_Task : "";
-            Tasks.Start_Date = dalTask.Start_Date;
-            Tasks.End_Date = dalTask.End_Date;
-            Tasks.Priority = dalTask.Priority;
-            Tasks.Project_ID = dalTask.Project_ID;
-            Tasks.Project = dalTask.Projects != null ? dalTask.Projects.Project : "";
+            if (dalTask != null)
+            {
 
-            Tasks.User_ID = dalTask.User_ID;
-            Tasks.Name = dalTask.Users != null ? dalTask.Users.FirstName + " " + dalTask.Users.LastName : "";
+                Tasks.Task_ID = dalTask.Task_ID;
+                Tasks.Task = dalTask.Task;
+                Tasks.Parent_ID = dalTask.Parent_ID;
+                Tasks.ParentTask = dalTask.ParentTask != null ? dalTask.ParentTask.Parent_Task : "";
+                Tasks.Start_Date = dalTask.Start_Date;
+                Tasks.End_Date = dalTask.End_Date;
+                Tasks.Priority = dalTask.Priority;
+                Tasks.Project_ID = dalTask.Project_ID;
+                Tasks.Project = dalTask.Projects != null ? dalTask.Projects.Project : "";
 
-            Tasks.TaskStatus = dalTask.TaskStatus;
+                Tasks.User_ID = dalTask.User_ID;
+                Tasks.Name = dalTask.Users != null ? dalTask.Users.FirstName + " " + dalTask.Users.LastName : "";
 
+                Tasks.TaskStatus = dalTask.TaskStatus;
+            }
+            else {
+                throw new Exception("Task not available");
+            }
             //Tasks = mapObj.Translate(dalTask);
             //AutoMapper.Mapper.Map(dalTask, Tasks);
 
@@ -159,7 +165,7 @@ namespace projectmanager.Service.Controllers
                     TaskObj.Project_ID = Task.Project_ID;
                     TaskObj.Start_Date = Task.Start_Date;
                     TaskObj.End_Date = Task.End_Date;
-                    TaskObj.Priority = Task.Priority==null ||Task.Priority.Equals("") ? null : Task.Priority;
+                    TaskObj.Priority = Task.Priority==null ||Task.Priority.Equals("") || Task.Priority.Equals("0") ? null : Task.Priority;
                     TaskObj.Status = true;
                     TaskObj.User_ID = Task.User_ID;
 

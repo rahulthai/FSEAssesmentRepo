@@ -4,7 +4,7 @@ export class Projects {
     StartDate: Date;
     EndDate: Date;
     Priority: string;
-    name:string;
+    Name:string;
     User_ID:number;
     TaskCount:number;
     CompletedTaskCount:number;

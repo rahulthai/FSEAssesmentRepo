@@ -24,7 +24,7 @@ namespace projectmanager.DAL
 
         public async Task<Projects> GetProject(int project_ID)
         {
-            return await _DbContext.Projects.Include(u =>u.Users).Include(u => u.Tasks).Where(p => p.Project_ID == project_ID && p.Status==true).FirstOrDefaultAsync();
+            return await _DbContext.Projects.Include(u =>u.Users).Where(p => p.Project_ID == project_ID && p.Status==true).FirstOrDefaultAsync();
         }
         public async Task<bool> InsertProject(Projects ProjectItem)
         {
