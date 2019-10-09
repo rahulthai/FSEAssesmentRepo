@@ -42,7 +42,7 @@ export class UsermodalComponent implements OnInit {
     this.user.userid = this.selectedValue;
     console.log(this.user);
 }
-deleteAlert(index){
+deleteAlert(){
 
   this.error.isError=false;
   this.error.errorMessage="";

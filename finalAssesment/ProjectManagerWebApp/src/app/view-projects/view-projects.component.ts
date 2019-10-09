@@ -23,6 +23,7 @@ export class ViewProjectsComponent implements OnInit {
   sortstring :string ="Project";
   reverse: boolean = true;
   sortedCollection: any[];
+  searchText : string;
   constructor(private projectsService: ProjectsService,private orderPipe: OrderPipe) { 
 
     this.sortedCollection = orderPipe.transform(this.projects, "Project");

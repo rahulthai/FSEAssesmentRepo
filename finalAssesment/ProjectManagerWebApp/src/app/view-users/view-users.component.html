@@ -13,7 +13,7 @@
     <hr class="dotted">
     <div class="table-responsive">
         <ul class="list-group" #userslist>
-            <li class="list-group-item" *ngFor="let user of (users | filter:{FirstName:searchText,LastName:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+            <li class="list-group-item" *ngFor="let user of (users | filter:{FirstName:searchText,LastName:searchText}:false) | orderBy: sortstring:false">
                 <div class="row">
                     <div class="col-md-8"><div>First Name :<label>{{user.FirstName}}</label></div>
                     <div>Last Name :<label>{{user.LastName}}</label></div>

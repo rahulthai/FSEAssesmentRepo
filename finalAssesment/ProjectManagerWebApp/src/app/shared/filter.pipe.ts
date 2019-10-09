@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
   //         });
   // }
 
-  transform(items: any, filter: any, isAnd: boolean): any {
+  public transform(items: any, filter: any, isAnd: boolean): any {
     if (filter && Array.isArray(items)) {
       let filterKeys = Object.keys(filter);
       if (isAnd) {

@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.getUsersList();
+    this.getUsersList(false);
   }
 
   getUserByID(event){
@@ -47,7 +47,7 @@ export class UsersComponent implements OnInit {
  
   }
 
-  getUsersList(): void {
+ public getUsersList(param:any): void {
     this.usersService.getUsersList()
         .subscribe(users => {
           console.log('users=')
@@ -68,7 +68,7 @@ export class UsersComponent implements OnInit {
      this.usersService.deleteUser(id)
          .subscribe(users => {
           console.log('User deleted'); 
-          this.getUsersList();
+          this.getUsersList(false);
          });
    }
 

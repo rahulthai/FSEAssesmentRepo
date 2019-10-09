@@ -6,14 +6,14 @@
       </div>
       <div class="modal-body">
           <div *ngIf="error.isError" class="alert alert-danger col-sm-8">
-              <button type="button" class="close" aria-label="Close" (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close" aria-label="Close" (click)="deleteAlert()"><span aria-hidden="true">&times;</span></button>
             {{ error.errorMessage }}
         </div>  
         <div class="row">
              <div class=" col-sm-8">
             <select #user name="user" class="form-control" [(ngModel)]="selectedValue" required (change)="onChange($event)">
                   <option value="">---Select User---</option>  
-                  <option *ngFor="let user of usersList |  orderBy: sortstring:false:'case-insensitive'" [value]="user.User_ID">
+                  <option *ngFor="let user of usersList |  orderBy: sortstring:false" [value]="user.User_ID">
                       {{user.FirstName}} {{user.LastName}}
                     </option>
                   </select>

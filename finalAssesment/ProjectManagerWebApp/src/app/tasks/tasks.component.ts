@@ -21,7 +21,7 @@ export class TasksComponent implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.getTasksList();
+    this.getTasksList(false);
   }
 
   getTaskByID(event){
@@ -68,7 +68,7 @@ export class TasksComponent implements OnInit {
  
   }
 
-  getTasksList(): void {
+  public getTasksList(param:any): void {
     this.tasksService.getTasksList()
         .subscribe(tasks => {
           console.log('tasks=')
@@ -89,7 +89,7 @@ export class TasksComponent implements OnInit {
      this.tasksService.deleteTask(id)
          .subscribe(tasks => {
           console.log('Task deleted'); 
-          this.getTasksList();
+          this.getTasksList(false);
          });
    }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import {Projects} from "../shared/models/projects.model";
 import { ProjectsService } from '../services/projects.service';
 
@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
   ngOnInit() {
     //this.projectItem.Project ="test from parent";
     
-    this.getProjectsList();
+    this.getProjectsList(false);
   }
 
   getProjectByID(event){
@@ -49,7 +49,7 @@ export class ProjectsComponent implements OnInit {
  
   }
 
-  getProjectsList(): void {
+  public getProjectsList(param:any): void {
     //this.projectItem.Priority="0";
     this.projectsService.getProjectsList()
         .subscribe(projects => {
@@ -71,7 +71,7 @@ export class ProjectsComponent implements OnInit {
      this.projectsService.deleteProject(id)
          .subscribe(projects => {
           console.log('Project deleted'); 
-          this.getProjectsList();
+          this.getProjectsList(false);
          });
    }
 }

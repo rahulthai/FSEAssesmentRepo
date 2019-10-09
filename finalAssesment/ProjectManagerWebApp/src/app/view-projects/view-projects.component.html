@@ -15,7 +15,7 @@
     <hr class="dotted">
     <div class="table-responsive">
         <ul class="list-group" #projectslist>
-            <li class="list-group-item" *ngFor="let project of (projects | filter:{Project:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+            <li class="list-group-item" *ngFor="let project of (projects | filter:{Project:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false">
                 <div class="row">
                     <div class="col-md-8">
                         <div>Project :<label>{{project.Project}}</label></div>

@@ -40,7 +40,7 @@ export class ParenttaskmodalComponent implements OnInit {
     this.parenttask.parentid = this.selectedValue;
     console.log(this.parenttask);
 }
-deleteAlert(index){
+public deleteAlert(){
 
   this.error.isError=false;
   this.error.errorMessage="";

@@ -25,6 +25,7 @@ export class ViewUsersComponent implements OnInit {
   sortstring :string ="FirstName";
   reverse: boolean = true;
   sortedCollection: any[];
+  searchText : string;
   constructor(private usersService: UsersService,private orderPipe: OrderPipe) { 
 
     this.sortedCollection = orderPipe.transform(this.users, "FirstName");

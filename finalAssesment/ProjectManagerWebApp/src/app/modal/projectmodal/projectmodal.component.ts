@@ -19,7 +19,7 @@ export class ProjectmodalComponent implements OnInit {
   sortstring:string="Project";
   selectedValue:string;
   error:any={isError:false,errorMessage:''};
-
+  searchText:string;
   constructor( public activeModal: NgbActiveModal,private projectsService: ProjectsService) {
     
     
@@ -40,7 +40,7 @@ export class ProjectmodalComponent implements OnInit {
     this.project.projectid = this.selectedValue;
     console.log(this.project);
 }
-deleteAlert(index){
+public deleteAlert(){
 
   this.error.isError=false;
   this.error.errorMessage="";

@@ -6,7 +6,7 @@
       </div>
       <div class="modal-body">
           <div *ngIf="error.isError" class="alert alert-danger col-sm-7">
-              <button type="button" class="close" aria-label="Close" (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close" aria-label="Close" (click)="deleteAlert()"><span aria-hidden="true">&times;</span></button>
             {{ error.errorMessage }}
         </div>
         <div class="row" *ngIf="projectsList?.length > 0">
@@ -19,7 +19,7 @@
              <div class=" col-sm-8">
             <select #project name="project" class="form-control" [(ngModel)]="selectedValue" required (change)="onChange($event)">
                   <option value="">---Select Project---</option>  
-                  <option *ngFor="let project of (projectsList | filter:{Project:searchText}:false) |  orderBy: sortstring:false:'case-insensitive'" [value]="project.Project_ID">
+                  <option *ngFor="let project of (projectsList | filter:{Project:searchText}:false) |  orderBy: sortstring:false" [value]="project.Project_ID">
                       {{project.Project}}
                     </option>
                   </select>

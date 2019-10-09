@@ -21,7 +21,7 @@ export class TaskslistComponent implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.getTasksList();
+    this.getTasksList(false);
   }
 
   hideEditTaskParent(event){
@@ -76,7 +76,7 @@ export class TaskslistComponent implements OnInit {
  
   }
 
-  getTasksList(): void {
+ public getTasksList(param:any): void {
     this.showaddflag = false;
     this.tasksService.getTasksList()
         .subscribe(tasks => {
@@ -98,7 +98,7 @@ export class TaskslistComponent implements OnInit {
      this.tasksService.deleteTask(id)
          .subscribe(tasks => {
           console.log('Task deleted'); 
-          this.getTasksList();
+          this.getTasksList(false);
          });
    }
 }

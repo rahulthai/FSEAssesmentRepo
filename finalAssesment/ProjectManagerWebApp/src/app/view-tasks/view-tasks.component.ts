@@ -28,6 +28,7 @@ export class ViewTasksComponent implements OnInit {
   sortstring :string ="Task";
   reverse: boolean = true;
   sortedCollection: any[];
+  searchText : string;
   
   projectObj = {
     Project: '',

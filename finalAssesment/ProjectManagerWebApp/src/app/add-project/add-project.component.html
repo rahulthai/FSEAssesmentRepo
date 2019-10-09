@@ -2,7 +2,7 @@
 <div class="col-md-12">
 <form ngNativeValidate #addProjectForm="ngForm"  (ngSubmit)="onSubmit(addProjectForm)">
         <div *ngIf="error.isError" class="alert alert-danger col-sm-7">
-            <button type="button" class="close" aria-label="Close" (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" aria-label="Close" (click)="deleteAlert()"><span aria-hidden="true">&times;</span></button>
           {{ error.errorMessage }}
       </div>     
 
@@ -76,7 +76,7 @@
       </div>
         <!-- Grid row -->
         <div class="form-group btn-toolbar">
-            <button type="submit" class="btn btn-primary btn-sm btn-space">{{ project?.Project_ID == Undefined || project?.Project_ID<=0  ? 'Add Project' : 'Update Project' }}</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-space">{{ project.Project_ID == undefined || project.Project_ID<=0  ? 'Add Project' : 'Update Project' }}</button>
             <input type="button" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
           </div>
         <!-- Grid row -->

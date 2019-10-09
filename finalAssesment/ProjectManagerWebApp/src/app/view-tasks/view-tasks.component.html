@@ -35,7 +35,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let task of (tasks | filter:{Task:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false:'case-insensitive'">
+                    <tr *ngFor="let task of (tasks | filter:{Task:searchText,StartDate:searchText,EndDate:searchText,Priority:searchText}:false) | orderBy: sortstring:false">
                       <td class="hidden">{{task.Task_ID}}</td>
                       <td class="col-md-2">{{task.Task}}</td>
                       <td>{{task.ParentTask?task.ParentTask:"N/A"}}</td>

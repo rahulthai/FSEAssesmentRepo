@@ -276,7 +276,7 @@ export class AddTaskComponent implements OnInit {
     
       }
     
-      deleteAlert(index){
+      deleteAlert(){
     
         this.error.isError=false;
         this.error.errorMessage="";

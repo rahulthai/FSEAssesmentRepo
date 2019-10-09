@@ -3,7 +3,7 @@
         <form ngNativeValidate #addTaskForm="ngForm"  (ngSubmit)="onSubmit(addTaskForm)">
                 <div *ngIf="error.isError" class="alert alert-danger col-sm-7">
                     <button type="button" class="close" aria-label="Close" 
-                      (click)="deleteAlert($index)"><span aria-hidden="true">&times;</span>
+                      (click)="deleteAlert()"><span aria-hidden="true">&times;</span>
                     </button>
                   {{ error.errorMessage }}
               </div>     
@@ -107,7 +107,7 @@
               </div>
                 <!-- Grid row -->
                 <div class="form-group btn-toolbar">
-                    <button type="submit" class="btn btn-primary btn-sm btn-space">{{ task?.Task_ID == Undefined ? 'Add Task' : 'Update Task' }}</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn-space">{{ task?.Task_ID == undefined ? 'Add Task' : 'Update Task' }}</button>
                     <input type="button" *ngIf="showreset" class="btn btn-secondary btn-sm btn-space" (click)="resetModel()" value="Reset">
                     <input type="button" *ngIf="!showreset" class="btn btn-secondary btn-sm btn-space" (click)="hideModel()" value="Cancel">
                   </div>

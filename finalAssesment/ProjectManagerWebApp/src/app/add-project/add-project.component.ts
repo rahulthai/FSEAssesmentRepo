@@ -75,7 +75,7 @@ console.log(this.project);
     console.log(date);
     return date;
   }
-  onCheckboxChange() {
+ public onCheckboxChange(param:any) {
     console.log('oncheckboxchange');
     console.log(this.checkbox);
         //this.checkbox = !this.checkbox;
@@ -158,7 +158,7 @@ console.log(value);
     
   }
 
-  resetModel(form: NgForm){
+  public resetModel(){
     //form.reset();
     this.project = new Projects();
     //this.project.Project_ID = 0;
@@ -225,7 +225,7 @@ console.log(this.userObj);
 
   }
 
-  deleteAlert(index){
+  public deleteAlert(){
 
     this.error.isError=false;
     this.error.errorMessage="";
