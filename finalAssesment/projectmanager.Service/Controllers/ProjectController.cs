@@ -29,6 +29,10 @@ namespace projectmanager.Service.Controllers
             dbContext = context;
             //projService = new ProjectService(dbContext);
         }
+        /// <summary>
+        /// GEt list of Projects
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<JsonResult<List<ProjectsModel>>> GetAllProjects()
         {

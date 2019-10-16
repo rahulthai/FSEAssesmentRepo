@@ -25,7 +25,12 @@ export class UsermodalComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.user);
-    this.selectedValue = this.user && this.user.userid==0?"":this.user.userid; 
+    if(this.user){
+    this.selectedValue = this.user && this.user.userid==0?"":this.user.userid;
+    }
+    else{
+      this.selectedValue ="";
+    } 
     this.sortstring ="FirstName";
     this.getUsersList();
   }

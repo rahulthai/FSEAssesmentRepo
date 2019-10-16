@@ -27,7 +27,12 @@ export class ParenttaskmodalComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.parenttask);
+    if(this.parenttask){
     this.selectedValue = this.parenttask && this.parenttask.parentid==0?"":this.parenttask.parentid; 
+    }
+    else{
+      this.selectedValue ="";
+    }
     this.sortstring ="Parent_Task";
     this.getParentTasksList();
   }

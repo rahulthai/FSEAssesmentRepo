@@ -27,7 +27,12 @@ export class ProjectmodalComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.project);
-    this.selectedValue = this.project && this.project.projectid==0?"":this.project.projectid; 
+    if(this.project){
+    this.selectedValue = this.project && this.project.projectid==0?"":this.project.projectid;
+    }
+    else{
+      this.selectedValue ="";
+    } 
     this.sortstring ="Project";
     this.getProjectsList();
   }

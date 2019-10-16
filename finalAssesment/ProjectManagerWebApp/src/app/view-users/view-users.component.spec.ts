@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewUsersComponent } from './view-users.component';
+import { FilterPipe } from '../shared/filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { OrderModule } from 'ngx-order-pipe';
 
 describe('ViewUsersComponent', () => {
   let component: ViewUsersComponent;
@@ -8,7 +12,8 @@ describe('ViewUsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewUsersComponent ]
+      declarations: [FilterPipe, ViewUsersComponent ],
+      imports:[FormsModule, HttpModule, OrderModule]
     })
     .compileComponents();
   }));

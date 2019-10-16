@@ -15,6 +15,10 @@ namespace projectmanager.DAL
             _DbContext = DbContext;
         }
 
+        /// <summary>
+        /// this is the function to get all projects
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Projects>> GetAllProjects()
         {
             return await _DbContext.Projects.Include(x=>x.Tasks)
