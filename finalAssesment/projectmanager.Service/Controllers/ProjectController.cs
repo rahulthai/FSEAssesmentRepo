@@ -62,6 +62,12 @@ namespace projectmanager.Service.Controllers
             //}
             return Json<List<ProjectsModel>>(projectsList);
         }
+
+        /// <summary>
+        /// Get project details by projectid
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<JsonResult<ProjectsModel>> GetProjectAsync(int id)
         {
