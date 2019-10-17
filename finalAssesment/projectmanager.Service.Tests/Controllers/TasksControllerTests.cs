@@ -16,6 +16,7 @@ using NuGet.Modules;
 using Newtonsoft.Json;
 using NBench.Util;
 using NBench;
+using System.Globalization;
 
 namespace projectmanager.Service.Controllers.Tests
 {
@@ -140,8 +141,8 @@ namespace projectmanager.Service.Controllers.Tests
         {
             //TasksModel proj = new TasksModel();
             taskObject.Task = "New Task addition test";
-            taskObject.Start_Date = DateTime.Parse("06/23/2019");
-            taskObject.End_Date = DateTime.Parse("08/31/2019");
+            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
             taskObject.Priority = "12";
             taskObject.Project_ID = 4;
             taskObject.User_ID = 1;
@@ -194,8 +195,8 @@ namespace projectmanager.Service.Controllers.Tests
             //TasksModel proj = new TasksModel();
             taskObject.Task_ID = 1;
             taskObject.Task = "New Task addition test updated";
-            taskObject.Start_Date = DateTime.Parse("06/23/2019");
-            taskObject.End_Date = DateTime.Parse("08/31/2019");
+            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
             taskObject.Priority = "12";
             taskObject.Project_ID = 4;
             taskObject.User_ID = 1;

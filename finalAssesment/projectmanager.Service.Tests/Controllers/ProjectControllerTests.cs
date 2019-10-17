@@ -90,8 +90,8 @@ namespace projectmanager.Service.Controllers.Tests
         {
             //ProjectsModel proj = new ProjectsModel();
             proj.Project = "New Skill Recent";
-            proj.StartDate = DateTime.ParseExact("06/23/2019","dd/MM/yyyy",CultureInfo.InstalledUICulture);
-            proj.EndDate = DateTime.ParseExact("08/31/2019", "dd/MM/yyyy", CultureInfo.InstalledUICulture);
+            proj.StartDate = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            proj.EndDate = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
             proj.Priority = "12";
 
             var result = ProjectController.InsertProjectAsync(proj);
@@ -115,8 +115,8 @@ namespace projectmanager.Service.Controllers.Tests
             //ProjectsModel proj = new ProjectsModel();
             proj.Project_ID = 1;
             proj.Project = "Dotnet Updated Name and Dates";
-            proj.StartDate = DateTime.Parse("06/23/2019");
-            proj.EndDate = DateTime.Parse("08/31/2019");
+            proj.StartDate = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            proj.EndDate = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
             proj.Priority = "10";
            
 
