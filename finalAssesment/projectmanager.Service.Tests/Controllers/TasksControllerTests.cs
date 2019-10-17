@@ -141,8 +141,8 @@ namespace projectmanager.Service.Controllers.Tests
         {
             //TasksModel proj = new TasksModel();
             taskObject.Task = "New Task addition test";
-            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
-            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InvariantCulture);
             taskObject.Priority = "12";
             taskObject.Project_ID = 4;
             taskObject.User_ID = 1;
@@ -195,8 +195,8 @@ namespace projectmanager.Service.Controllers.Tests
             //TasksModel proj = new TasksModel();
             taskObject.Task_ID = 1;
             taskObject.Task = "New Task addition test updated";
-            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
-            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InstalledUICulture);
+            taskObject.Start_Date = DateTime.ParseExact("06/23/2019", "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            taskObject.End_Date = DateTime.ParseExact("08/31/2019", "MM/dd/yyyy", CultureInfo.InvariantCulture);
             taskObject.Priority = "12";
             taskObject.Project_ID = 4;
             taskObject.User_ID = 1;

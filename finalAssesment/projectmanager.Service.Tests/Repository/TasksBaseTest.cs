@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using projectmanager.Service.Tests.Utils;
 using NBench;
 using AutoMapper;
+using System.Globalization;
 
 namespace projectmanager.Service.Tests.Repository
 {
@@ -56,8 +57,8 @@ namespace projectmanager.Service.Tests.Repository
             var tasks = new List<Tasks>() {
             new Tasks() {  Task_ID = 1,
                     Task ="Task first testing",
-                    Start_Date =DateTime.Parse("09-08-2015"),
-                    End_Date =DateTime.Parse("09-13-2015"),
+                    Start_Date =DateTime.ParseExact("09-08-2015","MM-dd-yyyy",CultureInfo.InvariantCulture),
+                    End_Date =DateTime.ParseExact("09-13-2015","MM-dd-yyyy",CultureInfo.InvariantCulture),
                     Priority ="13",
                     Project_ID=4,
                     Status = true,
@@ -67,8 +68,8 @@ namespace projectmanager.Service.Tests.Repository
             },
             new Tasks() {  Task_ID = 4,
                     Task ="Task for cleanup and testing",
-                    Start_Date =DateTime.Parse("05-06-2016"),
-                    End_Date =DateTime.Parse("05-22-2016"),
+                    Start_Date =DateTime.ParseExact("05-06-2016","MM-dd-yyyy",CultureInfo.InvariantCulture),
+                    End_Date =DateTime.ParseExact("05-22-2016","MM-dd-yyyy",CultureInfo.InvariantCulture),
                     Priority ="7",
                     Project_ID=2,
                     Status = true,
@@ -111,8 +112,8 @@ namespace projectmanager.Service.Tests.Repository
             var tasks = new List<Tasks>() {
             new Tasks() {  Task_ID = 1,
                     Task ="Task first testing",
-                    Start_Date =DateTime.Parse("09-08-2015"),
-                    End_Date =DateTime.Parse("09-13-2015"),
+                    Start_Date =DateTime.ParseExact("09-08-2015","MM-dd-yyyy",CultureInfo.InvariantCulture),
+                    End_Date =DateTime.ParseExact("09-13-2015","MM-dd-yyyy",CultureInfo.InvariantCulture),
                     Priority ="13",
                     Project_ID=4,
                     Status = true,
@@ -122,8 +123,8 @@ namespace projectmanager.Service.Tests.Repository
             },
             new Tasks() {  Task_ID = 4,
                     Task ="Task for cleanup and testing",
-                    Start_Date =DateTime.Parse("05-06-2016"),
-                    End_Date =DateTime.Parse("05-22-2016"),
+                    Start_Date =DateTime.ParseExact("05-06-2016","MM-dd-yyyy",CultureInfo.InvariantCulture),
+                    End_Date =DateTime.ParseExact("05-22-2016","MM-dd-yyyy",CultureInfo.InvariantCulture),
                     Priority ="7",
                     Project_ID=2,
                     Status = true,
